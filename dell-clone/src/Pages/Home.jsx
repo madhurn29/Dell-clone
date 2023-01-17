@@ -62,7 +62,7 @@ function Home() {
         padding={"10px"}
         // border="1px solid red"
       >
-        <Box borderRight={"1px solid black"} width="55%">
+        <Box borderRight={"1px solid black"} width="50%">
           <BannerComponents
             imageUrl={
               "https://i.dell.com/is/image/DellContent/content/dam/ss2/page-specific/dell-homepage/apj/2-ups/republic-day-cons-dell-inspiron-5420nt-uhp-2304-12-in-homepage-2up-module-800x400.png?fmt=pjpg&pscan=auto&scl=1&wid=800&hei=400&qlt=100,0&resMode=sharp2&size=800,400&op_usm=1.75,0.3,2,0"
@@ -81,7 +81,7 @@ function Home() {
             imageBoxWidth={"90%"}
           />
         </Box>
-        <Box>
+        <Box width={"50%"}>
           <BannerComponents
             imageUrl={
               "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/page/banners/q4w1-con-warm-2updeal2-wl5022-km7321w-mh3021p-800x400.jpg?fmt=pjpg&pscan=auto&scl=1&wid=800&hei=400&qlt=100,0&resMode=sharp2&size=800,400&op_usm=1.75,0.3,2,0"
@@ -101,7 +101,7 @@ function Home() {
           />
         </Box>
       </Box>
-      <FooterPart/>
+      {/* <FooterPart/> */}
     </Box>
   );
 }
