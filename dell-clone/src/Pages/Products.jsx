@@ -5,7 +5,9 @@ import AccordianTags from "../Components/ProductComponent/AccordianTags";
 import BannerComponentProducts from "../Components/ProductComponent/BannerComponentProducts";
 import RightLaptop from "../Components/ProductComponent/RightLaptop";
 import RatingScale from "../Components/ProductComponent/RatingScale";
+import { useNavigate } from "react-router-dom";
 function Products() {
+  const navigate = useNavigate();
   return (
     <Box>
       <TopBanner />
@@ -17,13 +19,13 @@ function Products() {
         <Box
           className="Content Section"
           width={"80%"}
-          border={"1px solid re"}
+          border={"1px solid red"}
           display={"flex"}
           flexDirection={"column"}
           pb="10px"
         >
           <Box
-            border={"1px solid blu"}
+            border={"1px solid blue"}
             boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px;"
             width="95%"
             m="auto"
@@ -42,7 +44,7 @@ function Products() {
               button1Text={"Shop Inspiron"}
               button2Text={"Explore Inspiron"}
               button_1_action={() => {
-                alert("shop inspiron");
+                navigate("/productList");
               }}
             />
             <RightLaptop />
