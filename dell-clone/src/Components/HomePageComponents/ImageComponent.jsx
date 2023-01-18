@@ -2,7 +2,7 @@ import React from "react";
 import { Image, Box, Text, Button } from "@chakra-ui/react";
 function ImageComponent() {
   return (
-    <Box height="450px" border="1px solid black">
+    <Box height="450px" border="1px solid blac">
       <Image   src="https://i.dell.com/is/image/DellContent/content/dam/ss2/page-specific/dell-homepage/apj/heroes/republic-day-cons-dell-xps-9315t-uhp-2304-12-in-homepage-hero-lf-2400x696-lr.png?fmt=pjpg&pscan=auto&scl=1&hei=696&wid=2400&qlt=100&resMode=sharp2&size=2400,696&op_usm=1.75,0.3,2,0" alt="laptop-image-1" />
       <Box
         position="relative"

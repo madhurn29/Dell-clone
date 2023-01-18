@@ -10,6 +10,7 @@ import Support from "../Pages/Support";
 import Deal from "../Pages/Deal";
 import FindStore from "../Pages/FindStore";
 import About from "../Pages/About";
+import ProductList from "../Pages/ProductList";
 
 function AllRoutes() {
   return (
@@ -23,6 +24,7 @@ function AllRoutes() {
       <Route path="/deals" element={<Deal />}></Route>
       <Route path="/findstore" element={<FindStore />}></Route>
       <Route path="/about" element={<About />}></Route>
+      <Route path="/productList" element={<ProductList />}></Route>
     </Routes>
   );
 }

@@ -5,7 +5,6 @@ import ImageComponent from "../Components/HomePageComponents/ImageComponent";
 import Welcome from "../Components/HomePageComponents/Welcome";
 import BannerComponents from "../Components/HomePageComponents/BannerComponents";
 import DellSupport from "../Components/HomePageComponents/DellSupport";
-import FooterPart from "../Components/FooterComponent/FooterPart";
 
 function Home() {
   return (
