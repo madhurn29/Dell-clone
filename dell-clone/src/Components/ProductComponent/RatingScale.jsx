@@ -5,7 +5,7 @@ function RatingScale() {
     background: "#b3a2a2",
   };
   return (
-    <Box border={"1px solid blac"} width={"100%"} padding={"20px"}>
+    <Box border={"1px solid blac"} width={"99.50%"} padding={"20px"}>
       <Box
         border={"1px solid #a49f9f"}
         width={"99%"}

@@ -1,4 +1,4 @@
-import React from "react";
+import {useState,useContext} from "react";
 import {
   faUser,
   faHeadset,
@@ -23,9 +23,14 @@ import {
   Link,
 } from "@chakra-ui/react";
 import { SearchIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import { SearchContext } from "../../Context/SearchContext";
+
+
 
 function NavbarTopPart() {
   const Icon = chakra(FontAwesomeIcon);
+  const {setSearchFun} =useContext(SearchContext);
+
   return (
     <>
       <Box
@@ -55,7 +60,8 @@ function NavbarTopPart() {
                   placeholder="Search Dell"
                   height="35px"
                   borderRadius="none"
-                  border="1px solid black"
+                  border="1px solid black" 
+                  onChange={(e)=>setSearchFun(e.target.value)}
                 />
                 <InputRightElement width="4.5rem">
                   <SearchIcon />
