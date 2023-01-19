@@ -19,13 +19,13 @@ function Products() {
         <Box
           className="Content Section"
           width={"80%"}
-          border={"1px solid red"}
+          border={"1px solid re"}
           display={"flex"}
           flexDirection={"column"}
           pb="10px"
         >
           <Box
-            border={"1px solid blue"}
+            border={"1px solid blu"}
             boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px;"
             width="95%"
             m="auto"
@@ -44,7 +44,7 @@ function Products() {
               button1Text={"Shop Inspiron"}
               button2Text={"Explore Inspiron"}
               button_1_action={() => {
-                navigate("/productList");
+                navigate("/InspironList");
               }}
             />
             <RightLaptop />

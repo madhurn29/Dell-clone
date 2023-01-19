@@ -25,7 +25,7 @@ function BannerComponentProducts({
     <Box
       display="flex"
       flexDirection={flexDirection}
-      border="1px solid blue"
+      border="1px solid blu"
       justifyContent={"center"}
       bg={bg}
       py="35px"

@@ -10,12 +10,17 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-function AccordianTags() {
-  const ColorScheme="blue"
+function AccordianTags({
+  offerSticky,
+  financeSticy,
+  screenSticky,
+  shopSticky,
+}) {
+  const ColorScheme = "blue";
 
   return (
     <Box width={"85%"} m="auto">
-      <Box borderRadius={"10px"} bg="#f3f3f3" py="15px" pl="20px" my="15px" >
+      <Box borderRadius={"10px"} bg="#f3f3f3" py="15px" pl="20px" my="15px">
         <Text fontSize={"20px"}>Filter Results</Text>
       </Box>
       <Accordion
@@ -24,7 +29,6 @@ function AccordianTags() {
         bg="#f3f3f3"
         borderRadius={"10px"}
         my="15px"
-        
       >
         <AccordionItem>
           <h2>
@@ -91,7 +95,9 @@ function AccordianTags() {
           </h2>
           <AccordionPanel pb={4}>
             <VStack alignItems={"left"}>
-              <Checkbox colorScheme={ColorScheme}>2-in-1 and/or Detachable</Checkbox>
+              <Checkbox colorScheme={ColorScheme}>
+                2-in-1 and/or Detachable
+              </Checkbox>
               <Checkbox colorScheme={ColorScheme}>Detachable</Checkbox>
               <Checkbox colorScheme={ColorScheme}>Laptop</Checkbox>
             </VStack>
@@ -117,7 +123,9 @@ function AccordianTags() {
           <AccordionPanel pb={4}>
             <VStack alignItems={"left"}>
               <Checkbox colorScheme={ColorScheme}>All Intel Processor</Checkbox>
-              <Checkbox colorScheme={ColorScheme}>Intel core i9 K Series</Checkbox>
+              <Checkbox colorScheme={ColorScheme}>
+                Intel core i9 K Series
+              </Checkbox>
               <Checkbox colorScheme={ColorScheme}>Intel core i9</Checkbox>
               <Checkbox colorScheme={ColorScheme}>Intel core i7</Checkbox>
               <Checkbox colorScheme={ColorScheme}>Intel core i5</Checkbox>
@@ -145,8 +153,12 @@ function AccordianTags() {
             <VStack alignItems={"left"}>
               <Checkbox colorScheme={ColorScheme}>12th Gen Intel Core</Checkbox>
               <Checkbox colorScheme={ColorScheme}>11th Gen Intel Core</Checkbox>
-              <Checkbox colorScheme={ColorScheme}>AMD Ryzen 6000 Series</Checkbox>
-              <Checkbox colorScheme={ColorScheme}>AMD Ryzen 5000 Series</Checkbox>
+              <Checkbox colorScheme={ColorScheme}>
+                AMD Ryzen 6000 Series
+              </Checkbox>
+              <Checkbox colorScheme={ColorScheme}>
+                AMD Ryzen 5000 Series
+              </Checkbox>
             </VStack>
           </AccordionPanel>
         </AccordionItem>
@@ -319,10 +331,14 @@ function AccordianTags() {
           <AccordionPanel pb={4}>
             <VStack alignItems={"left"}>
               <Checkbox colorScheme={ColorScheme}>All Intel graphics</Checkbox>
-              <Checkbox colorScheme={ColorScheme}>All NVIDIA graphics </Checkbox>
+              <Checkbox colorScheme={ColorScheme}>
+                All NVIDIA graphics{" "}
+              </Checkbox>
               <Checkbox colorScheme={ColorScheme}>All AMD graphics</Checkbox>
               <Checkbox colorScheme={ColorScheme}>Intel Iris Xe</Checkbox>
-              <Checkbox colorScheme={ColorScheme}>NVIDIA GeForce RTX 3080 Ti</Checkbox>
+              <Checkbox colorScheme={ColorScheme}>
+                NVIDIA GeForce RTX 3080 Ti
+              </Checkbox>
             </VStack>
           </AccordionPanel>
         </AccordionItem>
@@ -345,7 +361,9 @@ function AccordianTags() {
           </h2>
           <AccordionPanel pb={4}>
             <VStack alignItems={"left"}>
-              <Checkbox colorScheme={ColorScheme}>In stock for Fast Delivery</Checkbox>
+              <Checkbox colorScheme={ColorScheme}>
+                In stock for Fast Delivery
+              </Checkbox>
               <Checkbox colorScheme={ColorScheme}>Standard Shipping</Checkbox>
             </VStack>
           </AccordionPanel>
@@ -405,109 +423,125 @@ function AccordianTags() {
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
-      <Accordion
-        defaultIndex={[0, 1]}
-        allowMultiple
-        bg="#f3f3f3"
-        borderRadius={"10px"}
-        my="15px"
-      >
-        <AccordionItem>
-          <h2>
-            <AccordionButton>
-              <Box as="span" flex="1" textAlign="left">
-                <Text fontWeight={"bold"}>Offers</Text>
-              </Box>
-              <AccordionIcon />
-            </AccordionButton>
-          </h2>
-          <AccordionPanel pb={4}>
-            <VStack alignItems={"left"}>
-              <Checkbox colorScheme={ColorScheme}>Headest</Checkbox>
-              <Checkbox colorScheme={ColorScheme}>Cashback</Checkbox>
-              <Checkbox colorScheme={ColorScheme}>UPI</Checkbox>
-              <Checkbox colorScheme={ColorScheme}>Net Banking</Checkbox>
-            </VStack>
-          </AccordionPanel>
-        </AccordionItem>
-      </Accordion>
-      <Accordion
-        defaultIndex={[0, 1]}
-        allowMultiple
-        bg="#f3f3f3"
-        borderRadius={"10px"}
-        my="15px"
-      >
-        <AccordionItem>
-          <h2>
-            <AccordionButton>
-              <Box as="span" flex="1" textAlign="left">
-                <Text fontWeight={"bold"}>Financing Options</Text>
-              </Box>
-              <AccordionIcon />
-            </AccordionButton>
-          </h2>
-          <AccordionPanel pb={4}>
-            <VStack alignItems={"left"}>
-              <Checkbox colorScheme={ColorScheme}>No cost EMI</Checkbox>
-            </VStack>
-          </AccordionPanel>
-        </AccordionItem>
-      </Accordion>
-      <Accordion
-        defaultIndex={[0, 1]}
-        allowMultiple
-        bg="#f3f3f3"
-        borderRadius={"10px"}
-        my="15px"
-      >
-        <AccordionItem>
-          <h2>
-            <AccordionButton>
-              <Box as="span" flex="1" textAlign="left">
-                <Text fontWeight={"bold"}>Screen Resolution</Text>
-              </Box>
-              <AccordionIcon />
-            </AccordionButton>
-          </h2>
-          <AccordionPanel pb={4}>
-            <VStack alignItems={"left"}>
-              <Checkbox colorScheme={ColorScheme}> UHD</Checkbox>
-              <Checkbox colorScheme={ColorScheme}> QHD</Checkbox>
-              <Checkbox colorScheme={ColorScheme}> 3K</Checkbox>
-              <Checkbox colorScheme={ColorScheme}> FHD+</Checkbox>
-              <Checkbox colorScheme={ColorScheme}> FHD</Checkbox>
-            </VStack>
-          </AccordionPanel>
-        </AccordionItem>
-      </Accordion>
-      <Accordion
-        defaultIndex={[0, 1]}
-        allowMultiple
-        bg="#f3f3f3"
-        borderRadius={"10px"}
-        my="15px"
-      >
-        <AccordionItem>
-          <h2>
-            <AccordionButton>
-              <Box as="span" flex="1" textAlign="left">
-                <Text fontWeight={"bold"}>Shop by Use</Text>
-              </Box>
-              <AccordionIcon />
-            </AccordionButton>
-          </h2>
-          <AccordionPanel pb={4}>
-            <VStack alignItems={"left"}>
-              <Checkbox colorScheme={ColorScheme}> Customize & Buy</Checkbox>
-              <Checkbox colorScheme={ColorScheme}> Thin & Light</Checkbox>
-              <Checkbox colorScheme={ColorScheme}> Professional</Checkbox>
-              <Checkbox colorScheme={ColorScheme}> Casual Gaming</Checkbox>
-              <Checkbox colorScheme={ColorScheme}> Photo & Video Editing</Checkbox>
-            </VStack>
-          </AccordionPanel>
-        </AccordionItem>
-      </Accordion>
+      <Box 
+      top={0}
+      position={"webkitSticky"}>
+        <Accordion
+          position={"sticky"}
+          // top={offerSticky}
+          defaultIndex={[0, 1]}
+          allowMultiple
+          bg="#f3f3f3"
+          borderRadius={"10px"}
+          my="15px"
+        >
+          <AccordionItem>
+            <h2>
+              <AccordionButton>
+                <Box as="span" flex="1" textAlign="left">
+                  <Text fontWeight={"bold"}>Offers</Text>
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4}>
+              <VStack alignItems={"left"}>
+                <Checkbox colorScheme={ColorScheme}>Headest</Checkbox>
+                <Checkbox colorScheme={ColorScheme}>Cashback</Checkbox>
+                <Checkbox colorScheme={ColorScheme}>UPI</Checkbox>
+                <Checkbox colorScheme={ColorScheme}>Net Banking</Checkbox>
+              </VStack>
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
+        <Accordion
+          defaultIndex={[0, 1]}
+          allowMultiple
+          position={"sticky"}
+          // top={financeSticy}
+          bg="#f3f3f3"
+          borderRadius={"10px"}
+          my="15px"
+        >
+          <AccordionItem>
+            <h2>
+              <AccordionButton>
+                <Box as="span" flex="1" textAlign="left">
+                  <Text fontWeight={"bold"}>Financing Options</Text>
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4}>
+              <VStack alignItems={"left"}>
+                <Checkbox colorScheme={ColorScheme}>No cost EMI</Checkbox>
+              </VStack>
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
+        <Accordion
+          defaultIndex={[0, 1]}
+          allowMultiple
+          position={"sticky"}
+          // top={screenSticky}
+          bg="#f3f3f3"
+          borderRadius={"10px"}
+          my="15px"
+        >
+          <AccordionItem>
+            <h2>
+              <AccordionButton>
+                <Box as="span" flex="1" textAlign="left">
+                  <Text fontWeight={"bold"}>Screen Resolution</Text>
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4}>
+              <VStack alignItems={"left"}>
+                <Checkbox colorScheme={ColorScheme}> UHD</Checkbox>
+                <Checkbox colorScheme={ColorScheme}> QHD</Checkbox>
+                <Checkbox colorScheme={ColorScheme}> 3K</Checkbox>
+                <Checkbox colorScheme={ColorScheme}> FHD+</Checkbox>
+                <Checkbox colorScheme={ColorScheme}> FHD</Checkbox>
+              </VStack>
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
+        <Accordion
+          defaultIndex={[0, 1]}
+          allowMultiple
+          position={"sticky"}
+          // top={shopSticky}
+          border="1px solid re"
+          bg="#f3f3f3"
+          borderRadius={"10px"}
+          my="15px"
+        >
+          <AccordionItem>
+            <h2>
+              <AccordionButton>
+                <Box as="span" flex="1" textAlign="left">
+                  <Text fontWeight={"bold"}>Shop by Use</Text>
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4}>
+              <VStack alignItems={"left"}>
+                <Checkbox colorScheme={ColorScheme}> Customize & Buy</Checkbox>
+                <Checkbox colorScheme={ColorScheme}> Thin & Light</Checkbox>
+                <Checkbox colorScheme={ColorScheme}> Professional</Checkbox>
+                <Checkbox colorScheme={ColorScheme}> Casual Gaming</Checkbox>
+                <Checkbox colorScheme={ColorScheme}>
+                  {" "}
+                  Photo & Video Editing
+                </Checkbox>
+              </VStack>
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
+      </Box>
     </Box>
   );
 }
