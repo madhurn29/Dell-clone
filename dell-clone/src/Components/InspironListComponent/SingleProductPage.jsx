@@ -1,20 +1,28 @@
 import SingleProductTopPart from "./SingleProductTopPart";
 import { useState } from "react";
-import { Box, Text, Image, chakra,Button } from "@chakra-ui/react";
+import { Box, Text, Image, chakra, Button, useToast } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShareNodes } from "@fortawesome/free-solid-svg-icons";
+import Essentials from "./Essentials";
 
 function SingleProductPage() {
   const param = useParams();
   const [productData, setProductData] = useState();
   const Icon = chakra(FontAwesomeIcon);
-
+  const toast = useToast();
+  const callToast = (text) => {
+    toast({
+      title: text,
+      position: "top-right",
+      isClosable: true,
+    });
+  };
   const { id } = param;
   console.log(id);
-  const getData = (page) => {
+  const getData = (id) => {
     axios
       .get(`http://localhost:8080/inspiron/${id}`)
       .then(function (response) {
@@ -24,7 +32,7 @@ function SingleProductPage() {
       })
       .catch(function (error) {
         // handle error
-        console.log(error);
+        console.log(error, "fromerr");
       })
       .finally(function () {
         // always executed
@@ -33,11 +41,25 @@ function SingleProductPage() {
   useEffect(() => {
     getData(id);
     window.scroll({
-        top: 0,
-        left: 0,
-      });
-
+      top: 0,
+      left: 0,
+    });
   }, [id]);
+
+  const handleAddCart = (obj) => {
+    let newobj = { ...obj, quantity: 1 };
+    axios
+      .post("http://localhost:8080/cart", newobj)
+      .then(function (response) {
+        console.log(response);
+        callToast("Added to cart");
+      })
+      .catch(function (error) {
+        console.log(error);
+        callToast("Already added to cart");
+      });
+    console.log("from add cart", newobj);
+  };
 
   return (
     <Box>
@@ -54,14 +76,14 @@ function SingleProductPage() {
           border={"1px solid blu"}
           display={"flex"}
           flexDirection={"column"}
-        //   justifyContent={"end"}
+          //   justifyContent={"end"}
           alignItems={"end"}
         >
           <Box mr="25px">
             <Text fontSize={"30px"}>{productData?.title}</Text>
           </Box>
           <Box
-          mt="50px"
+            mt="50px"
             display={"flex"}
             justifyContent={"center"}
             width={"80%"}
@@ -84,8 +106,8 @@ function SingleProductPage() {
                 fontSize="14px"
                 fontWeight={500}
               >
-                ₹2500 discount on Credit Card, NetBanking,UPI|Dell Essential Bag
-                Included Buy with MS3220 mouse & Get ₹300 Off
+                ₹2500 discount on Credit Card, NetBanking,UPI | Dell Essential
+                Bag Included Buy with MS3220 mouse & Get ₹300 Off
               </Text>
             </Box>
             <Box display={"flex"} flexDirection={"column"} mt="20px">
@@ -171,18 +193,42 @@ function SingleProductPage() {
                 </Text>
               </Box>
               <Box>
-                <Text fontSize={"20px"} mt="5px" fontWeight={500}>{productData?.price}</Text>
-                <Text fontSize={"12px"} mt="5px">Price Inclusive GST & Delivery</Text>
-                <Text fontSize={"14px"} mt="10px">Get it as low as after UPI/Netbanking Offer </Text>
-                <Text color={"#006bbd"} mt="10px" fontSize="14px">Very Special Offers</Text>
-                <Button bg={"#408001"} color={"#fff"} mt="15px" px="25px" borderRadius={"2px"}>Buy Now</Button>
+                <Text fontSize={"20px"} mt="5px" fontWeight={500}>
+                  {productData?.price}
+                </Text>
+                <Text fontSize={"12px"} mt="5px">
+                  Price Inclusive GST & Delivery
+                </Text>
+                <Text fontSize={"14px"} mt="10px">
+                  Get it as low as after UPI/Netbanking Offer{" "}
+                </Text>
+                <Text color={"#006bbd"} mt="10px" fontSize="14px">
+                  Very Special Offers
+                </Text>
+                <Button
+                  onClick={() => {
+                    handleAddCart(productData);
+                  }}
+                  bg={"#408001"}
+                  color={"#fff"}
+                  mt="15px"
+                  px="25px"
+                  borderRadius={"2px"}
+                  _hover={{
+                    background: "white",
+                    color: "green",
+                    border: "1px solid green",
+                  }}
+                >
+                  Add to Cart
+                </Button>
               </Box>
             </Box>
           </Box>
         </Box>
       </Box>
 
-      <Box>Essential Accessories</Box>
+      <Box><Essentials/></Box>
     </Box>
   );
 }
