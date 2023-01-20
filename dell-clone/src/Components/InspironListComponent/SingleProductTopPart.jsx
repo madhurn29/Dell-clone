@@ -5,7 +5,6 @@ import {
   BreadcrumbLink,
   Image,
   Text,
-  chakra,
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 function SingleProductTopPart({ title }) {
