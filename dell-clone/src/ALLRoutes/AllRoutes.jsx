@@ -12,6 +12,9 @@ import FindStore from "../Pages/FindStore";
 import About from "../Pages/About";
 import InspironList from "../Pages/InspironList";
 import SingleProductPage from "../Components/InspironListComponent/SingleProductPage";
+import Cart from "../Pages/Cart";
+import SignIn from "../Pages/Login";
+import SignUp from "../Pages/SignUp";
 
 function AllRoutes() {
   return (
@@ -27,6 +30,10 @@ function AllRoutes() {
       <Route path="/about" element={<About />}></Route>
       <Route path="/InspironList" element={<InspironList />}></Route>
       <Route path="/InspironList/:id" element={<SingleProductPage />}></Route>
+      <Route path="/cart" element={<Cart />}></Route>
+      <Route path="/signin" element={<SignIn/>}></Route>
+      <Route path="/signup" element={<SignUp/>}></Route>
+
     </Routes>
   );
 }

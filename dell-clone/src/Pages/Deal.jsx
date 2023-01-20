@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import { Box } from "@chakra-ui/react";
 
 function Deal() {
-  return (
-    <div>Deal</div>
-  )
+  return <Box>Deals Page</Box>;
 }
 
-export default Deal
+export default Deal;

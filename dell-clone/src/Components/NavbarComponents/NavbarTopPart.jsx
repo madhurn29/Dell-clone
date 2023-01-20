@@ -1,4 +1,6 @@
-import {useState,useContext} from "react";
+import { useState, useContext } from "react";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
+
 import {
   faUser,
   faHeadset,
@@ -25,11 +27,10 @@ import {
 import { SearchIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { SearchContext } from "../../Context/SearchContext";
 
-
-
 function NavbarTopPart() {
+  const navigate = useNavigate();
   const Icon = chakra(FontAwesomeIcon);
-  const {setSearchFun} =useContext(SearchContext);
+  const { setSearchFun } = useContext(SearchContext);
 
   return (
     <>
@@ -60,8 +61,8 @@ function NavbarTopPart() {
                   placeholder="Search Dell"
                   height="35px"
                   borderRadius="none"
-                  border="1px solid black" 
-                  onChange={(e)=>setSearchFun(e.target.value)}
+                  border="1px solid black"
+                  onChange={(e) => setSearchFun(e.target.value)}
                 />
                 <InputRightElement width="4.5rem">
                   <SearchIcon />
@@ -95,6 +96,9 @@ function NavbarTopPart() {
                   pt="4px"
                   pb="4px"
                   height="25px"
+                  onClick={() => {
+                    navigate("/signin");
+                  }}
                 >
                   Sign In
                 </Button>
@@ -108,35 +112,13 @@ function NavbarTopPart() {
                   pt="4px"
                   pb="4px"
                   height="25px"
+                  onClick={() => {
+                    navigate("/signup");
+                  }}
                 >
-                  Account
+                 Create Account
                 </Button>
-                <Button
-                  width="90%"
-                  ml="9px"
-                  variant={"outline"}
-                  colorScheme="blue"
-                  borderRadius="none"
-                  mt="15px"
-                  pt="4px"
-                  pb="4px"
-                  height="25px"
-                >
-                  Premire Sign In
-                </Button>
-                <Button
-                  width="90%"
-                  ml="9px"
-                  variant={"outline"}
-                  colorScheme="blue"
-                  borderRadius="none"
-                  mt="15px"
-                  pt="4px"
-                  pb="4px"
-                  height="25px"
-                >
-                  Sign In
-                </Button>
+               
               </MenuList>
             </Menu>
             <Menu>
@@ -180,8 +162,10 @@ function NavbarTopPart() {
                 <Icon icon={faCartShopping} /> Cart
               </MenuButton>
               <MenuList>
+                <MenuItem>
+                  <RouterLink to="/cart">Go to Cart</RouterLink>
+                </MenuItem>
                 <MenuItem>Empty Cart</MenuItem>
-                
               </MenuList>
             </Menu>
           </Box>

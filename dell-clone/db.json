@@ -990,5 +990,62 @@
       "emi": "No cost EMI",
       "month": ""
     }
+  ],
+  "cart": [
+    {
+      "id": "31",
+      "imageUrl1": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/inspiron-notebooks/14-7420-2n1/media-gallery/notebook-inspiron-14-7420-2-in-1-gallery-3.psd?qlt=90,0&op_usm=1.75,0.3,2,0&resMode=sharp&pscan=auto&fmt=png-alpha&hei=500",
+      "imageUrl2": "https://i.dell.com/images/global/general/1x1.gif",
+      "title": "Inspiron 16 2-in-1 Laptop",
+      "orderCode": "Order Code d560906win9s",
+      "rating": "4.2",
+      "promoCode": "₹2500 OFF | FREE SHIPPING",
+      "strikethrough": "₹ 1,48,990.03",
+      "price": "₹ 1,28,990.03",
+      "save": "₹ 20,000.00",
+      "percentageSav": "(13%)",
+      "processor": "12th Gen Intel® Core® i7-1260P",
+      "os": "Windows 11 Home Single Language",
+      "graphics": "NVIDIA® GeForce® MX550, 2 GB GDDR6",
+      "memory": "16 GB, 2 x 8 GB, DDR4, 3200 MHz",
+      "storage": "512 GB, M.2, PCIe NVMe, SSD",
+      "display": "40.6-cm. touch display Ultra HD (3840X2400) OLED",
+      "emiStatus": "EMI starts from",
+      "emi": "₹ 10,749.00",
+      "month": "/month",
+      "quantity": "2"
+    },
+    {
+      "id": "3",
+      "imageUrl1": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/inspiron-notebooks/14-5420/media-gallery/notebook-inspiron-14-5420-2-in-1-gy-gallery-3.psd?fmt=png-alpha&pscan=auto&scl=1&hei=402&wid=617&qlt=100,1&resMode=sharp2&size=617,402&chrss=full",
+      "imageUrl2": "https://i.dell.com/images/global/general/1x1.gif",
+      "title": "Inspiron 14 2-in-1 Laptop",
+      "orderCode": "Order Code d560732win9p",
+      "rating": "4.1",
+      "promoCode": "₹2500 OFF | FREE SHIPPING",
+      "strikethrough": "₹ 86,489.99",
+      "price": "₹ 81,489.99",
+      "save": "₹ 5,000.00",
+      "percentageSav": "(6%)",
+      "processor": "AMD Ryzen® 5 5625U 6-core/12-thread Processor with Radeon® Graphics",
+      "os": "Windows 11 Home Single Language",
+      "graphics": "AMD Radeon® Graphics with shared graphics memory",
+      "memory": "8GB, 1x8GB, DDR4, 3200MHz",
+      "storage": "512 GB, M.2, PCIe NVMe, SSD",
+      "display": "35.5-cm. touch display Full HD (1920X1200)",
+      "emiStatus": "EMI starts from",
+      "emi": "₹ 6,791.00",
+      "month": "/month",
+      "quantity": 1
+    }
+  ],
+  "users": [
+    {
+      "name": "",
+      "lastname": "",
+      "email": "eve.holt@reqres.in",
+      "password": "asd",
+      "id": 1
+    }
   ]
 }
