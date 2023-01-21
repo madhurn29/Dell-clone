@@ -7,7 +7,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
-function SingleProductTopPart({ title }) {
+function SingleProductTopPart({ title,routeName,subRoute }) {
   return (
     <Box
       border={"1px solid blu"}
@@ -29,12 +29,12 @@ function SingleProductTopPart({ title }) {
           </BreadcrumbItem>
 
           <BreadcrumbItem>
-            <BreadcrumbLink href="#">For Home</BreadcrumbLink>
+            <BreadcrumbLink href="/">For Home</BreadcrumbLink>
           </BreadcrumbItem>
 
           <BreadcrumbItem>
-            <BreadcrumbLink href="/InspironList">
-              Inspiron Laptops
+            <BreadcrumbLink href={subRoute}>
+              {routeName}
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbItem isCurrentPage>

@@ -8,7 +8,11 @@ import {
   ListItem,
   Button,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+
 function RightLaptop() {
+  const navigate = useNavigate();
+
   return (
     <Box border={"1px solid re"} py="40px" bg="#f3f3f3">
       <Box>
@@ -124,7 +128,9 @@ function RightLaptop() {
           <GridItem w="90%" >
             
               <Box border={"1px solid blu"} display={"flex"} flexDirection={"column"}>
-                <Button my="15px" colorScheme={"blue"} borderRadius={"none"}>
+                <Button my="15px" colorScheme={"blue"} borderRadius={"none"} onClick={()=>{
+                  navigate('/VostroList')
+                }}>
                   Shop Vostro
                 </Button>
 
@@ -140,7 +146,9 @@ function RightLaptop() {
           </GridItem>
           <GridItem w="90%" >
             <Box display={"flex"} flexDirection={"column"} >
-              <Button my="15px" colorScheme={"blue"} borderRadius={"none"} >
+              <Button my="15px" colorScheme={"blue"} borderRadius={"none"} onClick={()=>{
+                  navigate('/InspironList')
+                }} >
                 Shop Inspiron
               </Button>
 

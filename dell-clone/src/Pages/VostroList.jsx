@@ -9,6 +9,7 @@ import { useSearchParams } from "react-router-dom";
 import RatingScale from "../Components/ProductComponent/RatingScale";
 import Pagination from "../Components/InspironListComponent/Pagination";
 import { SearchContext } from "../Context/SearchContext";
+import { FilterContext } from "../Context/FilterContext";
 import SkeletonProductsSpecs from "../Components/InspironListComponent/SkeletonProductsSpecs";
 const getPageNumber = (val) => {
   let pageNumber = Number(val);
@@ -23,16 +24,17 @@ const getPageNumber = (val) => {
 
   return pageNumber;
 };
-function InspironList() {
+function VostroList() {
   const [productData, setProductData] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const limit = 12;
   const [totalProducts, setTotalProducts] = useState();
   const totalPages = Math.ceil(totalProducts / limit);
   const { search } = useContext(SearchContext);
+  const { filterQuery } = useContext(FilterContext);
   const [isLoading, setIsLoading] = useState(false);
   const [SortOrder, setSortOrder] = useState("");
-
+console.log(filterQuery,"filterQuery")
   let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   let pagevalue = searchParams.get("page");
   console.log("pagevalue", pagevalue);
@@ -43,13 +45,16 @@ function InspironList() {
 
   const getData = (page, search, SortOrder) => {
     setIsLoading(true);
-    let url = `http://localhost:8080/inspiron?_page=${page}&_limit=${limit}`;
+    let url = `http://localhost:8080/vostro?_page=${page}&_limit=${limit}`;
     if (search) {
-      url = `http://localhost:8080/inspiron?_page=${page}&_limit=${limit}&q=${search}`;
+      url = `http://localhost:8080/vostro?_page=${page}&_limit=${limit}&q=${search}`;
     }
     if (SortOrder) {
       url = `${url}&_sort=price&_order=${SortOrder}`;
     }
+    // if (filterQuery) {
+    //   url = `http://localhost:8080/vostro?display=${filterQuery}`;
+    // }
 
     axios
       .get(url)
@@ -92,6 +97,9 @@ function InspironList() {
     if (SortOrder) {
       paramObj.SortOrder = SortOrder;
     }
+    // if (filterQuery) {
+    //   paramObj.FilterQuery = filterQuery;
+    // }
 
     setSearchParams(paramObj);
   }, [page, search, SortOrder]);
@@ -120,7 +128,7 @@ function InspironList() {
       <TopPartPrdouctList />
       <Box border={"1px solid re"} textAlign="center" my="15px">
         <Text fontSize={"36px"} fontWeight={400}>
-          Inspiron Laptops & 2-in-1 PCs
+          Vostro Laptop Computers & 2-in-1 PCs
         </Text>
       </Box>
       <Box className="middlePart" display={"flex"}>
@@ -172,12 +180,15 @@ function InspironList() {
               : productData?.map((item) => {
                   return (
                     <ProductSpecs
-                      route={`InspironList`}
+                      route={`VostroList`}
                       key={item.id}
                       {...item}
                     />
                   );
                 })}
+            {/* {productData?.map((item) => {
+              return <ProductSpecs key={item.id} {...item} />;
+            })}{" "} */}
           </Box>
 
           <Box
@@ -209,7 +220,7 @@ function InspironList() {
   );
 }
 
-export default InspironList;
+export default VostroList;
 {
   /* <ProductSpecs
 imageUrl={

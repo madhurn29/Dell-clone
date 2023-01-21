@@ -1,6 +1,16 @@
 import React from "react";
-import { Box, Text, FormControl, Input, Image, Button } from "@chakra-ui/react";
-import { useState } from "react";
+import {
+  Box,
+  Text,
+  FormControl,
+  Input,
+  Image,
+  Button,
+  useToast,
+} from "@chakra-ui/react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthContext";
 import axios from "axios";
 const init = {
   email: "",
@@ -8,15 +18,51 @@ const init = {
 };
 
 function LoginForm() {
+  const { setLogin, setName} = useContext(AuthContext);
   const [form, setForm] = useState(init);
   const { email, password } = form;
+  const toast = useToast();
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
   const handleChange = (e) => {
     let { name, value } = e.target;
     console.log(name, value);
     setForm({ ...form, [name]: value });
   };
 
-  console.log(form)
+  const callToast = (text) => {
+    toast({
+      title: text,
+      position: "top",
+      isClosable: true,
+    });
+  };
+  const handleSubmit = () => {
+    setIsLoading(true);
+    axios
+      .get(`http://localhost:8080/users?q=${form.email}`)
+      .then((res) => {
+        if (res.data.length === 0) {
+          console.log("No found");
+        } else {
+          if (res.data[0].password === form.password) {
+            console.log("login");
+            setLogin()
+            setName(res.data[0].name)
+            navigate("/");
+          } else {
+            callToast("Wrong Credentials");
+            console.log("wrong password");
+          }
+        }
+        // console.log(res,"response")
+      })
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+  console.log(form);
   return (
     <Box className="FormBox" border={"1px solid re"}>
       <Box mt="15px">
@@ -52,6 +98,7 @@ function LoginForm() {
             placeholder="Password"
             type={"password"}
             width="100%"
+            required
             border={"1px solid black"}
             borderRadius="none"
             name="password"
@@ -61,19 +108,21 @@ function LoginForm() {
         </Box>
 
         <Box mt="15px">
-          <Text textAlign={"center"}>Don't remember your password? Create or Reset password</Text>
+          <Text textAlign={"center"}>
+            Don't remember your password? Create or Reset password
+          </Text>
         </Box>
 
         <Input
           type={"submit"}
           mt="25px"
-          value="Sign In"
+          value={isLoading ? "Signing In..." : "Sign In"}
           bg="#0077de"
           _hover={{ background: "#006dcf" }}
           color="white"
           borderRadius={"none"}
           onClick={() => {
-            // handleSubmit();
+            handleSubmit();
           }}
         ></Input>
         <Box mt="10px">

@@ -1,8 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Box, Image, Text } from "@chakra-ui/react";
-function ProductSpecs({
-  route,
+import { Box, Image, Text, Skeleton } from "@chakra-ui/react";
+function SkeletonProductsSpecs({
   id,
   title,
   imageUrl1,
@@ -38,7 +37,7 @@ function ProductSpecs({
       py="40px"
       mb="20px"
     >
-      <Box
+      <Skeleton
         className="ImageBox"
         width={"33%"}
         border={"1px solid re"}
@@ -46,8 +45,8 @@ function ProductSpecs({
         alignItems={"center"}
       >
         <Image src={imageUrl1} />
-      </Box>
-      <Box className="SpecsBox" width={"33%"} border={"1px solid re"}>
+      </Skeleton>
+      <Skeleton className="SpecsBox" width={"33%"} border={"1px solid re"}>
         <Box borderBottom={"1px solid grey"}>
           <Text
             lineHeight={lineHeight}
@@ -56,7 +55,7 @@ function ProductSpecs({
             fontSize={"20px"}
           >
             <NavLink
-              to={`/${route}/${id}`}
+              to={`/InspironList/${id}`}
               style={{ textDecoration: "underline" }}
             >
               {title}
@@ -131,8 +130,8 @@ function ProductSpecs({
             </Box>
           </Box>
         </Box>
-      </Box>
-      <Box className="PriceBox" width={"30%"} border={"1px solid re"}>
+      </Skeleton>
+      <Skeleton className="PriceBox" width={"30%"} border={"1px solid re"}>
         <Box>
           <Text
             bg="#f5f6f7"
@@ -185,9 +184,9 @@ function ProductSpecs({
             </Text>
           )}
         </Box>
-      </Box>
+      </Skeleton>
     </Box>
   );
 }
 
-export default ProductSpecs;
+export default SkeletonProductsSpecs;

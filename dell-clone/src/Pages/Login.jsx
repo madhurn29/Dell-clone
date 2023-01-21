@@ -15,7 +15,10 @@ export default function SignIn() {
           <Box>
             <Text textAlign={"center"} my="20px">
               Don't have a Dell account?{" "}
-              <RouterLink to="/signup" style={{color:"blue"}} > Create an account </RouterLink>{" "}
+              <RouterLink to="/signup" style={{ color: "blue" }}>
+                {" "}
+                Create an account{" "}
+              </RouterLink>{" "}
             </Text>
           </Box>
         </Box>
