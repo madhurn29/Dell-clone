@@ -1,6 +1,5 @@
-import { useState, useContext } from "react";
+import { useContext,useState,useEffect } from "react";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-
 import {
   faUser,
   faHeadset,
@@ -26,11 +25,29 @@ import {
 } from "@chakra-ui/react";
 import { SearchIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { SearchContext } from "../../Context/SearchContext";
-
+import { AuthContext } from "../../Context/AuthContext";
 function NavbarTopPart() {
   const navigate = useNavigate();
   const Icon = chakra(FontAwesomeIcon);
   const { setSearchFun } = useContext(SearchContext);
+  const {isAuth,userName,setLogout} = useContext(AuthContext);
+  const [signInBtnText,SetSignInText]=useState("Sign In")
+  
+  // useEffect(()=>{
+  //   SetSignInText(userName)
+  // },[])
+  console.log("fromnavbar",isAuth,userName);
+
+  const handleSigninButton=()=>{
+    if(isAuth){
+      SetSignInText("Log Out")
+      setLogout()
+
+    }
+    else{
+      navigate("/signin");
+    }
+  }
 
   return (
     <>
@@ -81,7 +98,7 @@ function NavbarTopPart() {
                 borderRadius="none"
                 rightIcon={<ChevronDownIcon />}
               >
-                <Icon icon={faUser} /> Sign In
+                <Icon icon={faUser} /> {isAuth ? userName : "SignIn"}
               </MenuButton>
               <MenuList width={"50%"}>
                 <Text as="h5" size="xs" ml="10px">
@@ -96,11 +113,9 @@ function NavbarTopPart() {
                   pt="4px"
                   pb="4px"
                   height="25px"
-                  onClick={() => {
-                    navigate("/signin");
-                  }}
+                  onClick={handleSigninButton}
                 >
-                  Sign In
+                  {isAuth ? "Log Out" : "Sign In"}
                 </Button>
                 <Button
                   width="90%"
@@ -116,9 +131,8 @@ function NavbarTopPart() {
                     navigate("/signup");
                   }}
                 >
-                 Create Account
+                  {isAuth ? "Manage Account" : "Create Account" }
                 </Button>
-               
               </MenuList>
             </Menu>
             <Menu>
@@ -165,7 +179,7 @@ function NavbarTopPart() {
                 <MenuItem>
                   <RouterLink to="/cart">Go to Cart</RouterLink>
                 </MenuItem>
-                <MenuItem>Empty Cart</MenuItem>
+                {/* <MenuItem>Empty Cart</MenuItem> */}
               </MenuList>
             </Menu>
           </Box>

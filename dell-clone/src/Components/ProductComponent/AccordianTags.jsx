@@ -9,14 +9,21 @@ import {
   Checkbox,
   VStack,
 } from "@chakra-ui/react";
-
+import { useEffect } from "react";
+import { useState } from "react";
+import { useContext } from "react";
+import { FilterContext } from "../../Context/FilterContext";
 function AccordianTags({
   offerSticky,
   financeSticy,
   screenSticky,
   shopSticky,
 }) {
+  const { setFilterFun } = useContext(FilterContext);
   const ColorScheme = "blue";
+  
+
+ 
 
   return (
     <Box width={"85%"} m="auto">
@@ -68,11 +75,71 @@ function AccordianTags({
           </h2>
           <AccordionPanel pb={4}>
             <VStack alignItems={"left"}>
-              <Checkbox colorScheme={ColorScheme}>43.18 cm (17 inch)</Checkbox>
-              <Checkbox colorScheme={ColorScheme}>40.60 cm (16 inch)</Checkbox>
-              <Checkbox colorScheme={ColorScheme}>38.10 cm (15 inch)</Checkbox>
-              <Checkbox colorScheme={ColorScheme}>35.56 cm (14 inch)</Checkbox>
-              <Checkbox colorScheme={ColorScheme}>33.02 cm (13 inch)</Checkbox>
+              <Checkbox
+                colorScheme={ColorScheme}
+                value="43.18 cm (17 inch)"
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    setFilterFun(e.target.value);
+                  } else {
+                    setFilterFun("");
+                  }
+                }}
+              >
+                43.18 cm (17 inch)
+              </Checkbox>
+              <Checkbox
+                value="40.60 cm (16 inch)"
+                colorScheme={ColorScheme}
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    setFilterFun(e.target.value);
+                  } else {
+                    setFilterFun("");
+                  }
+                }}
+              >
+                40.60 cm (16 inch)
+              </Checkbox>
+              <Checkbox
+                colorScheme={ColorScheme}
+                value="38.10 cm (15 inch)"
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    setFilterFun(e.target.value);
+                  } else {
+                    setFilterFun("");
+                  }
+                }}
+              >
+                38.10 cm (15 inch)
+              </Checkbox>
+              <Checkbox
+                colorScheme={ColorScheme}
+                value="35.56 cm (14 inch)"
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    setFilterFun(e.target.value);
+                  } else {
+                    setFilterFun("");
+                  }
+                }}
+              >
+                35.56 cm (14 inch)
+              </Checkbox>
+              <Checkbox
+                colorScheme={ColorScheme}
+                value="33.02 cm (13 inch)"
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    setFilterFun(e.target.value);
+                  } else {
+                    setFilterFun("");
+                  }
+                }}
+              >
+                33.02 cm (13 inch)
+              </Checkbox>
             </VStack>
           </AccordionPanel>
         </AccordionItem>
@@ -423,11 +490,9 @@ function AccordianTags({
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
-      <Box 
-      top={0}
-      position={"webkitSticky"}>
+      <Box top={0} position={"sticky"}>
         <Accordion
-          position={"sticky"}
+          // position={"sticky"}
           // top={offerSticky}
           defaultIndex={[0, 1]}
           allowMultiple

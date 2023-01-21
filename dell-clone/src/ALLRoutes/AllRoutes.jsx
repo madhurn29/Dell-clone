@@ -15,6 +15,10 @@ import SingleProductPage from "../Components/InspironListComponent/SingleProduct
 import Cart from "../Pages/Cart";
 import SignIn from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
+import VostroList from "../Pages/VostroList";
+import AddAddress from "../Pages/AddAddress";
+import Checkout from "../Pages/Checkout";
+import PrivateRoute from "./PrivateRoute";
 
 function AllRoutes() {
   return (
@@ -29,11 +33,37 @@ function AllRoutes() {
       <Route path="/findstore" element={<FindStore />}></Route>
       <Route path="/about" element={<About />}></Route>
       <Route path="/InspironList" element={<InspironList />}></Route>
-      <Route path="/InspironList/:id" element={<SingleProductPage />}></Route>
+      <Route path="/VostroList" element={<VostroList />}></Route>
+      <Route
+        path="/InspironList/:id"
+        element={
+          <SingleProductPage route={`inspiron`} routeName={"Inspiron"} />
+        }
+      ></Route>
+      <Route
+        path="/VostroList/:id"
+        element={<SingleProductPage route={`vostro`} routeName={"Vostro"} />}
+      ></Route>
       <Route path="/cart" element={<Cart />}></Route>
-      <Route path="/signin" element={<SignIn/>}></Route>
-      <Route path="/signup" element={<SignUp/>}></Route>
+      <Route path="/signin" element={<SignIn />}></Route>
+      <Route path="/signup" element={<SignUp />}></Route>
 
+      <Route
+        path="/address"
+        element={
+          <PrivateRoute>
+            <AddAddress />
+          </PrivateRoute>
+        }
+      ></Route>
+      <Route
+        path="/checkout"
+        element={
+          <PrivateRoute>
+            <Checkout />
+          </PrivateRoute>
+        }
+      ></Route>
     </Routes>
   );
 }

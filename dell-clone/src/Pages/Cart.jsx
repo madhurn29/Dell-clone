@@ -12,24 +12,29 @@ import {
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/AuthContext";
+import { useContext } from "react";
 
 function Cart() {
+  const { TotalPriceFun } = useContext(AuthContext);
   const [data, setData] = useState([]);
   //   const [qty, setQty] = useState(1);
-  const [totalCartPrice, setTotalPrice]=useState(0)
+  const navigate = useNavigate();
+  const [totalCartPrice, setTotalPrice] = useState(0);
   const convertNum = (x) => {
     let y = x.split(" ")[1];
     let z = y.split(",").join("");
     return +z;
   };
-  let totalPrice=0
+  let totalPrice = 0;
   data.forEach((item) => {
-    totalPrice += convertNum(item.price)*Number(item.quantity)
+    totalPrice += convertNum(item.price) * Number(item.quantity);
   });
-  
-  totalPrice = totalPrice.toFixed(2)
+
+  totalPrice = totalPrice.toFixed(2);
   console.log(totalPrice);
-//   
+  TotalPriceFun(totalPrice);
 
   const getData = () => {
     axios("http://localhost:8080/cart")
@@ -43,30 +48,29 @@ function Cart() {
   };
   useEffect(() => {
     getData();
-    setTotalPrice(totalPrice)
+    setTotalPrice(totalPrice);
   }, [totalPrice]);
 
   const handleQuantity = (val, id) => {
     if (!val) {
       val = 1;
     }
-    axios.patch(`http://localhost:8080/cart/${id}`,{quantity:val}).then((res)=>{
+    axios
+      .patch(`http://localhost:8080/cart/${id}`, { quantity: val })
+      .then((res) => {
         console.log(res);
-        getData()
-    })
+        getData();
+      });
 
     console.log("quanty", +val, "id", id);
   };
 
-
-
-  const handleDelete=(id)=>{
-    axios.delete(`http://localhost:8080/cart/${id}`).then((res)=>{
-        console.log("deleted")
-        getData()
-    })
-    
-  }
+  const handleDelete = (id) => {
+    axios.delete(`http://localhost:8080/cart/${id}`).then((res) => {
+      console.log("deleted");
+      getData();
+    });
+  };
   return (
     <Box border="1px solid re" pb="50px">
       <Box
@@ -175,7 +179,7 @@ function Cart() {
                       variant={"link"}
                       colorScheme="blue"
                       width="70px"
-                      onClick={()=>handleDelete(item.id)}
+                      onClick={() => handleDelete(item.id)}
                     >
                       {" "}
                       Remove Item{" "}
@@ -245,7 +249,12 @@ function Cart() {
                 width="100%"
                 bg="#5e9f10"
                 color="white"
-                _hover={{color:"#5e9f10",backgroundColor:"white", border:"1px solid #5e9f10"}}
+                _hover={{
+                  color: "#5e9f10",
+                  backgroundColor: "white",
+                  border: "1px solid #5e9f10",
+                }}
+                onClick={() => navigate("/address")}
               >
                 {" "}
                 Proceed to Checkout

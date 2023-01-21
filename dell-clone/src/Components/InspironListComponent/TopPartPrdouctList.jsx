@@ -10,7 +10,12 @@ import { ChevronRightIcon } from "@chakra-ui/icons";
 
 function TopPartPrdouctList() {
   return (
-    <Box border={"1px solid blu"} display="flex" justifyContent={"space-around"} mt="15px">
+    <Box
+      border={"1px solid blu"}
+      display="flex"
+      justifyContent={"space-around"}
+      mt="15px"
+    >
       <Box border={"1px solid re"} width={"50%"} display="flex">
         <Breadcrumb
           fontSize={"12px"}
@@ -21,20 +26,14 @@ function TopPartPrdouctList() {
           separator={<ChevronRightIcon color="gray.500" />}
         >
           <BreadcrumbItem>
-            <BreadcrumbLink href="#">India</BreadcrumbLink>
+            <BreadcrumbLink href="/">Home</BreadcrumbLink>
           </BreadcrumbItem>
 
           <BreadcrumbItem>
-            <BreadcrumbLink href="#">For Home</BreadcrumbLink>
+            <BreadcrumbLink href="/products">Laptops</BreadcrumbLink>
           </BreadcrumbItem>
-
           <BreadcrumbItem>
             <BreadcrumbLink href="#">Laptopss & 2-in-1 PCs</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbItem isCurrentPage>
-            <BreadcrumbLink href="#">
-              Inspiron Laptopss & 2-in-1 PCs
-            </BreadcrumbLink>
           </BreadcrumbItem>
         </Breadcrumb>
       </Box>

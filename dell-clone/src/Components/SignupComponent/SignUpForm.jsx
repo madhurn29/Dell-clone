@@ -36,8 +36,8 @@ function SignUpForm() {
   };
   console.log("form", form);
   return (
-    <Box className="FormBox">
-      <FormControl>
+    <Box className="FormBox" border={"1px solid re"}>
+      <FormControl isRequired>
         <Box display={"flex"} justifyContent={"space-between"} mb="20px">
           <Box border={"1px solid re"} width="49%">
             <Input
