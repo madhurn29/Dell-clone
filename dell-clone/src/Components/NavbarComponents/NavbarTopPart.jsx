@@ -1,4 +1,5 @@
-import React from "react";
+import { useContext, useState, useEffect } from "react";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import {
   faUser,
   faHeadset,
@@ -23,9 +24,29 @@ import {
   Link,
 } from "@chakra-ui/react";
 import { SearchIcon, ChevronDownIcon } from "@chakra-ui/icons";
-
+import { SearchContext } from "../../Context/SearchContext";
+import { AuthContext } from "../../Context/AuthContext";
 function NavbarTopPart() {
+  const navigate = useNavigate();
   const Icon = chakra(FontAwesomeIcon);
+  const { setSearchFun } = useContext(SearchContext);
+  const { isAuth, userName, setLogout } = useContext(AuthContext);
+  const [signInBtnText, SetSignInText] = useState("Sign In");
+
+  // useEffect(()=>{
+  //   SetSignInText(userName)
+  // },[])
+  console.log("fromnavbar", isAuth, userName);
+
+  const handleSigninButton = () => {
+    if (isAuth) {
+      SetSignInText("Log Out");
+      setLogout();
+    } else {
+      navigate("/signin");
+    }
+  };
+
   return (
     <>
       <Box
@@ -56,6 +77,7 @@ function NavbarTopPart() {
                   height="35px"
                   borderRadius="none"
                   border="1px solid black"
+                  onChange={(e) => setSearchFun(e.target.value)}
                 />
                 <InputRightElement width="4.5rem">
                   <SearchIcon />
@@ -65,8 +87,8 @@ function NavbarTopPart() {
           </Box>
         </Box>
         <Box className="siginMenuBox" mr="15px">
-          <Box display="flex" alignItems="center" height="100%">
-            <Menu>
+          <Box display="flex" alignItems="center" height="100%" zIndex={9}> 
+            <Menu >
               <MenuButton
                 as={Button}
                 bg="white"
@@ -74,9 +96,9 @@ function NavbarTopPart() {
                 borderRadius="none"
                 rightIcon={<ChevronDownIcon />}
               >
-                <Icon icon={faUser} /> Sign In
+                <Icon icon={faUser} /> {isAuth ? userName : "SignIn"}
               </MenuButton>
-              <MenuList width={"50%"}>
+              <MenuList width={"50%"} zIndex={9}>
                 <Text as="h5" size="xs" ml="10px">
                   Welcome To Dell
                 </Text>
@@ -89,8 +111,9 @@ function NavbarTopPart() {
                   pt="4px"
                   pb="4px"
                   height="25px"
+                  onClick={handleSigninButton}
                 >
-                  Sign In
+                  {isAuth ? "Log Out" : "Sign In"}
                 </Button>
                 <Button
                   width="90%"
@@ -102,8 +125,11 @@ function NavbarTopPart() {
                   pt="4px"
                   pb="4px"
                   height="25px"
+                  onClick={() => {
+                    navigate("/signup");
+                  }}
                 >
-                  Account
+                  {isAuth ? "Manage Account" : "Create Account"}
                 </Button>
                 <Button
                   width="90%"
@@ -115,21 +141,11 @@ function NavbarTopPart() {
                   pt="4px"
                   pb="4px"
                   height="25px"
+                  onClick={() => {
+                    navigate("/admin");
+                  }}
                 >
-                  Premire Sign In
-                </Button>
-                <Button
-                  width="90%"
-                  ml="9px"
-                  variant={"outline"}
-                  colorScheme="blue"
-                  borderRadius="none"
-                  mt="15px"
-                  pt="4px"
-                  pb="4px"
-                  height="25px"
-                >
-                  Sign In
+                  Admin Page
                 </Button>
               </MenuList>
             </Menu>
@@ -174,8 +190,10 @@ function NavbarTopPart() {
                 <Icon icon={faCartShopping} /> Cart
               </MenuButton>
               <MenuList>
-                <MenuItem>Empty Cart</MenuItem>
-                
+                <MenuItem>
+                  <RouterLink to="/cart">Go to Cart</RouterLink>
+                </MenuItem>
+                {/* <MenuItem>Empty Cart</MenuItem> */}
               </MenuList>
             </Menu>
           </Box>
