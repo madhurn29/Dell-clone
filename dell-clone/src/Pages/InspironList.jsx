@@ -43,9 +43,9 @@ function InspironList() {
 
   const getData = (page, search, SortOrder) => {
     setIsLoading(true);
-    let url = `http://localhost:8080/inspiron?_page=${page}&_limit=${limit}`;
+    let url = `https://dell-render.onrender.com/inspiron?_page=${page}&_limit=${limit}`;
     if (search) {
-      url = `http://localhost:8080/inspiron?_page=${page}&_limit=${limit}&q=${search}`;
+      url = `https://dell-render.onrender.com/inspiron?_page=${page}&_limit=${limit}&q=${search}`;
     }
     if (SortOrder) {
       url = `${url}&_sort=price&_order=${SortOrder}`;

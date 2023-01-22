@@ -19,6 +19,7 @@ import { useContext } from "react";
 function Cart() {
   const { TotalPriceFun } = useContext(AuthContext);
   const [data, setData] = useState([]);
+  const [up, setUp] = useState(0);
   //   const [qty, setQty] = useState(1);
   const navigate = useNavigate();
   const [totalCartPrice, setTotalPrice] = useState(0);
@@ -37,7 +38,7 @@ function Cart() {
   TotalPriceFun(totalPrice);
 
   const getData = () => {
-    axios("http://localhost:8080/cart")
+    axios("https://dell-render.onrender.com/cart")
       .then((result) => {
         // console.log(result.data);
         setData(result.data);
@@ -49,16 +50,19 @@ function Cart() {
   useEffect(() => {
     getData();
     setTotalPrice(totalPrice);
-  }, [totalPrice]);
+  }, [totalPrice, up]);
 
   const handleQuantity = (val, id) => {
     if (!val) {
       val = 1;
     }
     axios
-      .patch(`http://localhost:8080/cart/${id}`, { quantity: val })
+      .patch(`https://dell-render.onrender.com/cart/${id}`, {
+        quantity: val,
+      })
       .then((res) => {
         console.log(res);
+        setUp((prev) => prev + 1);
         getData();
       });
 
@@ -66,10 +70,13 @@ function Cart() {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:8080/cart/${id}`).then((res) => {
-      console.log("deleted");
-      getData();
-    });
+    axios
+      .delete(`https://dell-render.onrender.com/cart/${id}`)
+      .then((res) => {
+        console.log("deleted");
+        setUp((prev) => prev + 1);
+        getData();
+      });
   };
   return (
     <Box border="1px solid re" pb="50px">

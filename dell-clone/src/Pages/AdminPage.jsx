@@ -88,10 +88,10 @@ function AdminPage() {
     let url;
 
     if (Category === "Inspiron") {
-      url = "http://localhost:8080/inspiron";
+      url = "https://dell-render.onrender.com/inspiron";
     }
     if (Category === "Vostro") {
-      url = "http://localhost:8080/vostro";
+      url = "https://dell-render.onrender.com/vostro";
     }
     return axios.post(url, obj).then((response) => {
         console.log(response);

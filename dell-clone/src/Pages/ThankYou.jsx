@@ -115,7 +115,7 @@ function ThankYou() {
               </PinInput>
             </Box>
             <Box display={"flex"} justifyContent={"center"}>
-              <Button colorScheme={"blu"} onClick={handleSubmit}>
+              <Button colorScheme={"blue"} onClick={handleSubmit}>
                 Pay
               </Button>
             </Box>

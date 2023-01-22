@@ -1946,26 +1946,13 @@
     }
   ],
   "users": [
-    {
-      "name": "",
-      "lastname": "",
-      "email": "eve.holt@reqres.in",
-      "password": "asd",
-      "id": 1
-    },
+   
     {
       "name": "Madhur",
       "lastname": "Nadamwar",
       "email": "madhur@gmail.com",
       "password": "123456",
       "id": 2
-    },
-    {
-      "name": "",
-      "lastname": "",
-      "email": "eve.holt@reqres.in",
-      "password": "asd",
-      "id": 3
     },
     {
       "name": "darshan",

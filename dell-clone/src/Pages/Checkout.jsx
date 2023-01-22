@@ -51,7 +51,7 @@ console.log(form)
     }
 
     if (flag) {
-      navigate("/");
+      navigate("/thankyou");
     } else {
       callToast();
     }
