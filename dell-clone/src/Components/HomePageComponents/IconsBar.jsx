@@ -51,7 +51,7 @@ function IconsBar() {
       mt="2px"
       position={"sticky"}
       top={0}
-      zIndex={9}
+      zIndex={5}
     >
       <Grid
         display="grid"
