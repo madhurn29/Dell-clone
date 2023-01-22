@@ -35,7 +35,7 @@ function SingleProductPage({ route, routeName }) {
   const getData = (id) => {
     setIsLoading(true);
     axios
-      .get(`http://localhost:8080/${route}/${id}`)
+      .get(`https://dell-render.onrender.com/${route}/${id}`)
       .then(function (response) {
         // handle success
         console.log(response.data);
@@ -61,7 +61,7 @@ function SingleProductPage({ route, routeName }) {
   const handleAddCart = (obj) => {
     let newobj = { ...obj, quantity: 1 };
     axios
-      .post("http://localhost:8080/cart", newobj)
+      .post("https://dell-render.onrender.com/cart", newobj)
       .then(function (response) {
         console.log(response);
         callToast("Added to cart");

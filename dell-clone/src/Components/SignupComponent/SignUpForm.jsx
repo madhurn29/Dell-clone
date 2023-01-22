@@ -6,7 +6,8 @@ import {
   Input,
   Image,
   Checkbox,
-  Button,useToast
+  Button,
+  useToast,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -39,7 +40,7 @@ function SignUpForm() {
   };
   const PostRequest = () => {
     axios
-      .post("http://localhost:8080/users", form)
+      .post("https://dell-render.onrender.com/users", form)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
     setForm(init);
@@ -54,8 +55,8 @@ function SignUpForm() {
     }
 
     if (flag) {
-     PostRequest()
-     navigate('/signin')
+      PostRequest();
+      navigate("/signin");
     } else {
       callToast();
     }

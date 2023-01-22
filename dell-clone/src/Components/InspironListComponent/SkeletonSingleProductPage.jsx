@@ -1,68 +1,12 @@
-import SingleProductTopPart from "./SingleProductTopPart";
 import { useState } from "react";
-import { Box, Text, Image, chakra, Button, useToast, Skeleton } from "@chakra-ui/react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
-import { useEffect } from "react";
+import { Box, Text, Image, chakra, Button, Skeleton } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShareNodes } from "@fortawesome/free-solid-svg-icons";
 import Essentials from "./Essentials";
 
 function SkeletonSingleProductPage() {
-//   const param = useParams();
   const [productData, setProductData] = useState();
-//   const [isLoading,setIsLoading]=useState(false)
   const Icon = chakra(FontAwesomeIcon);
-//   const toast = useToast();
-//   const callToast = (text) => {
-//     toast({
-//       title: text,
-//       position: "top-right",
-//       isClosable: true,
-//     });
-//   };
-//   const { id } = param;
-//   console.log(id);
-//   const getData = (id) => {
-//     setIsLoading(true)
-//     axios
-//       .get(`http://localhost:8080/inspiron/${id}`)
-//       .then(function (response) {
-//         // handle success
-//         console.log(response.data);
-//         setProductData(response.data);
-//         setIsLoading(false)
-//       })
-//       .catch(function (error) {
-//         // handle error
-//         console.log(error, "fromerr");
-//       })
-//       .finally(function () {
-//         // always executed
-//       });
-//   };
-//   useEffect(() => {
-//     getData(id);
-//     window.scroll({
-//       top: 0,
-//       left: 0,
-//     });
-//   }, [id]);
-
-//   const handleAddCart = (obj) => {
-//     let newobj = { ...obj, quantity: 1 };
-//     axios
-//       .post("http://localhost:8080/cart", newobj)
-//       .then(function (response) {
-//         console.log(response);
-//         callToast("Added to cart");
-//       })
-//       .catch(function (error) {
-//         console.log(error);
-//         callToast("Already added to cart");
-//       });
-//     console.log("from add cart", newobj);
-//   };
 
   return (
     <Box>
@@ -96,7 +40,11 @@ function SkeletonSingleProductPage() {
           </Box>
         </Skeleton>
 
-        <Skeleton className="ContentSide" width={"48%"} border={"1px solid gree"}>
+        <Skeleton
+          className="ContentSide"
+          width={"48%"}
+          border={"1px solid gree"}
+        >
           <Box border={"1px solid re"} width={"75%"}>
             <Box fontSize={"28px"}>
               {" "}
@@ -231,7 +179,9 @@ function SkeletonSingleProductPage() {
         </Skeleton>
       </Box>
 
-      <Box><Essentials/></Box>
+      <Box>
+        <Essentials />
+      </Box>
     </Box>
   );
 }

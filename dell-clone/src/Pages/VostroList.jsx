@@ -34,7 +34,7 @@ function VostroList() {
   const { filterQuery } = useContext(FilterContext);
   const [isLoading, setIsLoading] = useState(false);
   const [SortOrder, setSortOrder] = useState("");
-console.log(filterQuery,"filterQuery")
+  console.log(filterQuery, "filterQuery");
   let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   let pagevalue = searchParams.get("page");
   console.log("pagevalue", pagevalue);
@@ -45,15 +45,15 @@ console.log(filterQuery,"filterQuery")
 
   const getData = (page, search, SortOrder) => {
     setIsLoading(true);
-    let url = `http://localhost:8080/vostro?_page=${page}&_limit=${limit}`;
+    let url = `https://dell-render.onrender.com/vostro?_page=${page}&_limit=${limit}`;
     if (search) {
-      url = `http://localhost:8080/vostro?_page=${page}&_limit=${limit}&q=${search}`;
+      url = `https://dell-render.onrender.com/vostro?_page=${page}&_limit=${limit}&q=${search}`;
     }
     if (SortOrder) {
       url = `${url}&_sort=price&_order=${SortOrder}`;
     }
     // if (filterQuery) {
-    //   url = `http://localhost:8080/vostro?display=${filterQuery}`;
+    //   url = `https://dell-server-aq7b.vercel.app/vostro?display=${filterQuery}`;
     // }
 
     axios

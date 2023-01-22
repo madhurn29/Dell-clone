@@ -40,7 +40,7 @@ function LoginForm() {
   const handleSubmit = () => {
     setIsLoading(true);
     axios
-      .get(`http://localhost:8080/users?q=${form.email}`)
+      .get(`https://dell-render.onrender.com/users?q=${form.email}`)
       .then((res) => {
         if (res.data.length === 0) {
           callToast("User Not Found, Please Sign up");
