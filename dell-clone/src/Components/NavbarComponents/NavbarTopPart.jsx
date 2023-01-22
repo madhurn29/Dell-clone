@@ -87,8 +87,8 @@ function NavbarTopPart() {
           </Box>
         </Box>
         <Box className="siginMenuBox" mr="15px">
-          <Box display="flex" alignItems="center" height="100%" zIndex={9}> 
-            <Menu >
+          <Box display="flex" alignItems="center" height="100%" zIndex={9}>
+            <Menu>
               <MenuButton
                 as={Button}
                 bg="white"
@@ -171,7 +171,7 @@ function NavbarTopPart() {
               >
                 <Icon icon={faGlobe} /> IN/EN
               </MenuButton>
-              <MenuList>
+              <MenuList zIndex={9}>
                 <MenuItem>India/English</MenuItem>
                 <MenuItem>Afghanistan/English</MenuItem>
                 <MenuItem>Australia/English</MenuItem>
@@ -189,7 +189,7 @@ function NavbarTopPart() {
               >
                 <Icon icon={faCartShopping} /> Cart
               </MenuButton>
-              <MenuList>
+              <MenuList zIndex={9}>
                 <MenuItem>
                   <RouterLink to="/cart">Go to Cart</RouterLink>
                 </MenuItem>
