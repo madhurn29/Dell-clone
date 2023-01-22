@@ -12,7 +12,7 @@ import {
 import { ChevronDownIcon } from "@chakra-ui/icons";
 function NavbarBottomPart() {
   return (
-    <Box mt="10px">
+    <Box mt="10px" border="1px solid re">
       <Menu>
         <MenuButton
           as={Button}
@@ -24,7 +24,7 @@ function NavbarBottomPart() {
         >
           Apex
         </MenuButton>
-        <MenuList>
+        <MenuList zIndex={9}>
           <MenuItem>
             <RouterLink to="/about">View All Apex</RouterLink>
           </MenuItem>
@@ -45,7 +45,7 @@ function NavbarBottomPart() {
         >
           Products
         </MenuButton>
-        <MenuList>
+        <MenuList zIndex={9}>
           <MenuItem>
             <RouterLink to="/products">Laptops</RouterLink>
           </MenuItem>
@@ -72,7 +72,7 @@ function NavbarBottomPart() {
         >
           Solutions
         </MenuButton>
-        <MenuList>
+        <MenuList zIndex={9}>
           <MenuItem>
             <RouterLink to="/solutions">View All Solutions</RouterLink>
           </MenuItem>
@@ -94,7 +94,7 @@ function NavbarBottomPart() {
         >
           Services
         </MenuButton>
-        <MenuList>
+        <MenuList zIndex={9}>
           <MenuItem>
             <RouterLink to="/services">View All View All Services</RouterLink>
           </MenuItem>
@@ -116,7 +116,7 @@ function NavbarBottomPart() {
         >
           Support
         </MenuButton>
-        <MenuList>
+        <MenuList zIndex={9}>
           <MenuItem>
             <RouterLink to="/support">Support Home</RouterLink>
           </MenuItem>
@@ -137,7 +137,7 @@ function NavbarBottomPart() {
         >
           Deals
         </MenuButton>
-        <MenuList>
+        <MenuList zIndex={9}>
           <MenuItem>
             <RouterLink to="/deals">Laptop Deals</RouterLink>
           </MenuItem>
@@ -173,7 +173,7 @@ function NavbarBottomPart() {
         >
           About Us
         </MenuButton>
-        <MenuList>
+        <MenuList zIndex={9}>
           <MenuItem>
             <RouterLink to="/about">What We Do</RouterLink>
           </MenuItem>
