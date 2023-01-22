@@ -7,7 +7,7 @@ import {
   FormControl,
   FormLabel,
   Select,
-  useToast,
+  useToast,Image
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
@@ -185,32 +185,10 @@ console.log(form)
             <Text fontSize={"16px"} my="5px" mb="15px">
               Chat with an agent or Call 1800-425-4002 for additional help.
             </Text>
-            {/* <InputGroup size="md">
-              <Input
-                // pr="5px"
-                type="text"
-                placeholder="Enter Coupon"
-                _placeholder={{ color: "grey", paddingLeft: "1px" }}
-                borderRadius={"none"}
-                border="1px solid grey"
-              />
-              <InputRightElement width="">
-                <Button
-                  variant={"outline"}
-                  h="1.75rem"
-                  size="sm"
-                  onClick={""}
-                  borderRadius={"none"}
-                  color="#007db8"
-                  mr="2px"
-                >
-                  Apply Coupon
-                </Button>
-              </InputRightElement>
-            </InputGroup> */}
+            
           </Box>
           <Box border="1px solid black" p="15px">
-            <Box borderBottom={"1px solid blac"} p="10px">
+            <Box borderBottom={"1px solid black"} p="10px">
               <Text>Estimate Shipping and Tax</Text>
             </Box>
             <Box p="10px" display={"flex"} justifyContent={"space-between"}>
@@ -242,6 +220,9 @@ console.log(form)
                 Proceed to Checkout
               </Button>
             </Box>
+          </Box>
+          <Box>
+            <Image src="https://user-images.githubusercontent.com/52581/44384465-5e312780-a570-11e8-9336-7b54978a9e64.png" />
           </Box>
         </Box>
       </Box>

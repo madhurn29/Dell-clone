@@ -18,7 +18,7 @@ const init = {
 };
 
 function LoginForm() {
-  const { setLogin, setName} = useContext(AuthContext);
+  const { setLogin, setName } = useContext(AuthContext);
   const [form, setForm] = useState(init);
   const { email, password } = form;
   const toast = useToast();
@@ -43,12 +43,13 @@ function LoginForm() {
       .get(`http://localhost:8080/users?q=${form.email}`)
       .then((res) => {
         if (res.data.length === 0) {
+          callToast("User Not Found, Please Sign up");
           console.log("No found");
         } else {
           if (res.data[0].password === form.password) {
             console.log("login");
-            setLogin()
-            setName(res.data[0].name)
+            setLogin();
+            setName(res.data[0].name);
             navigate("/");
           } else {
             callToast("Wrong Credentials");

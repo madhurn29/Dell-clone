@@ -1,4 +1,4 @@
-import { useContext,useState,useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import {
   faUser,
@@ -30,24 +30,22 @@ function NavbarTopPart() {
   const navigate = useNavigate();
   const Icon = chakra(FontAwesomeIcon);
   const { setSearchFun } = useContext(SearchContext);
-  const {isAuth,userName,setLogout} = useContext(AuthContext);
-  const [signInBtnText,SetSignInText]=useState("Sign In")
-  
+  const { isAuth, userName, setLogout } = useContext(AuthContext);
+  const [signInBtnText, SetSignInText] = useState("Sign In");
+
   // useEffect(()=>{
   //   SetSignInText(userName)
   // },[])
-  console.log("fromnavbar",isAuth,userName);
+  console.log("fromnavbar", isAuth, userName);
 
-  const handleSigninButton=()=>{
-    if(isAuth){
-      SetSignInText("Log Out")
-      setLogout()
-
-    }
-    else{
+  const handleSigninButton = () => {
+    if (isAuth) {
+      SetSignInText("Log Out");
+      setLogout();
+    } else {
       navigate("/signin");
     }
-  }
+  };
 
   return (
     <>
@@ -89,8 +87,8 @@ function NavbarTopPart() {
           </Box>
         </Box>
         <Box className="siginMenuBox" mr="15px">
-          <Box display="flex" alignItems="center" height="100%">
-            <Menu>
+          <Box display="flex" alignItems="center" height="100%" zIndex={9}> 
+            <Menu >
               <MenuButton
                 as={Button}
                 bg="white"
@@ -100,7 +98,7 @@ function NavbarTopPart() {
               >
                 <Icon icon={faUser} /> {isAuth ? userName : "SignIn"}
               </MenuButton>
-              <MenuList width={"50%"}>
+              <MenuList width={"50%"} zIndex={9}>
                 <Text as="h5" size="xs" ml="10px">
                   Welcome To Dell
                 </Text>
@@ -131,7 +129,23 @@ function NavbarTopPart() {
                     navigate("/signup");
                   }}
                 >
-                  {isAuth ? "Manage Account" : "Create Account" }
+                  {isAuth ? "Manage Account" : "Create Account"}
+                </Button>
+                <Button
+                  width="90%"
+                  ml="9px"
+                  variant={"outline"}
+                  colorScheme="blue"
+                  borderRadius="none"
+                  mt="15px"
+                  pt="4px"
+                  pb="4px"
+                  height="25px"
+                  onClick={() => {
+                    navigate("/admin");
+                  }}
+                >
+                  Admin Page
                 </Button>
               </MenuList>
             </Menu>

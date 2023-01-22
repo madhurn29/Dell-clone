@@ -6,9 +6,11 @@ import {
   Input,
   Image,
   Checkbox,
-  Button,
+  Button,useToast
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 const init = {
   name: "",
@@ -20,19 +22,43 @@ const init = {
 function SignUpForm() {
   const [form, setForm] = useState(init);
   const { name, lastname, email, password } = form;
+  const toast = useToast();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     let { name, value } = e.target;
     console.log(name, value);
     setForm({ ...form, [name]: value });
   };
-
-  const handleSubmit = () => {
+  const callToast = () => {
+    toast({
+      title: "Please Enter all the Details",
+      position: "top",
+      isClosable: true,
+    });
+  };
+  const PostRequest = () => {
     axios
       .post("http://localhost:8080/users", form)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
     setForm(init);
+  };
+
+  const handleSubmit = () => {
+    let flag = true;
+    for (let x in form) {
+      if (form[x] === "") {
+        flag = false;
+      }
+    }
+
+    if (flag) {
+     PostRequest()
+     navigate('/signin')
+    } else {
+      callToast();
+    }
   };
   console.log("form", form);
   return (

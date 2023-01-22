@@ -8,7 +8,7 @@ import {
   InputRightElement,
   FormControl,
   FormLabel,
-  useToast,
+  useToast,Image
 } from "@chakra-ui/react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -240,7 +240,7 @@ function AddAddress() {
             </InputGroup>
           </Box>
           <Box border="1px solid black">
-            <Box borderBottom={"1px solid blac"} p="10px">
+            <Box borderBottom={"1px solid black"} p="10px">
               <Text>Estimate Shipping and Tax</Text>
             </Box>
             <Box p="10px" display={"flex"} justifyContent={"space-between"}>
@@ -272,6 +272,9 @@ function AddAddress() {
                 Proceed to Checkout
               </Button>
             </Box>
+          </Box>
+          <Box>
+            <Image src="https://user-images.githubusercontent.com/52581/44384465-5e312780-a570-11e8-9336-7b54978a9e64.png" />
           </Box>
         </Box>
       </Box>

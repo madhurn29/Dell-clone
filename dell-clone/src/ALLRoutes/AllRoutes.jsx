@@ -19,6 +19,9 @@ import VostroList from "../Pages/VostroList";
 import AddAddress from "../Pages/AddAddress";
 import Checkout from "../Pages/Checkout";
 import PrivateRoute from "./PrivateRoute";
+import ThankYou from "../Pages/ThankYou";
+import AdminPage from "../Pages/AdminPage";
+import PageNotFound from "../Pages/PageNotFound";
 
 function AllRoutes() {
   return (
@@ -64,6 +67,10 @@ function AllRoutes() {
           </PrivateRoute>
         }
       ></Route>
+      <Route path="/thankyou" element={<ThankYou />}></Route>
+      <Route path="/admin" element={<AdminPage />}></Route>
+      <Route path="*" element={<PageNotFound />}></Route>
+
     </Routes>
   );
 }
