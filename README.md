@@ -9,6 +9,8 @@ Dellco.com is the clone of Dell.com. DEllco.com is an E-commerce platform for El
 
 ### Techstack used in this project:
 React 
+
+### CSS Library used in this project:
 Chakra UI
 
 rooted-scale-5183
