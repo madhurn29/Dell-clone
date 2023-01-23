@@ -11,5 +11,5 @@ Dellco.com is the clone of Dell.com. DEllco.com is an E-commerce platform for El
 React 
 Chakra UI
 
-# rooted-scale-5183
-## Server Link : https://dell-render.onrender.com/
+rooted-scale-5183
+Server Link : https://dell-render.onrender.com/
