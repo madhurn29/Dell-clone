@@ -50,43 +50,57 @@ function NavbarTopPart() {
   return (
     <>
       <Box
+        width={"100%"}
         className="TopBar"
-        // border="1px solid black"
+        border="1px solid re"
         display="flex"
         justifyContent="space-between"
         // bg="tomato"
       >
-        <Box justifyContent="start" alignItems="center" display="flex">
-          <Box className="logoandSearchBox" display="flex" alignItems="center">
-            <Box className="LogoBox">
-              <Link href="/">
-                <Image
-                  ml="30px"
-                  objectFit="cover"
-                  width="180px"
-                  src={dell_logo}
-                  alt="Dell Log0"
-                />
-              </Link>
-            </Box>
+        <Box
+          className="logoBoxAndSearchBox"
+          display="flex"
+          alignItems="center"
+          width={"70%"}
+          border={"1px solid blac"}
+        >
+          <Box className="LogoBox" width={"25%"} border={"1px solid re"}>
+            <Link href="/">
+              <Image
+                ml="30px"
+                // objectFit="cover"
+                width="70%"
+                src={dell_logo}
+                alt="Dell Log0"
+              />
+            </Link>
+          </Box>
 
-            <Box className="Search box">
-              <InputGroup width="550px" ml="90px">
-                <Input
-                  placeholder="Search Dell"
-                  height="35px"
-                  borderRadius="none"
-                  border="1px solid black"
-                  onChange={(e) => setSearchFun(e.target.value)}
-                />
-                <InputRightElement width="4.5rem">
-                  <SearchIcon />
-                </InputRightElement>
-              </InputGroup>
-            </Box>
+          <Box className="Search box" width={"70%"} border={"1px solid re"}>
+            <InputGroup width="80%">
+              <Input
+                placeholder="Search Dell"
+                height="35px"
+                borderRadius="none"
+                border="1px solid black"
+                onChange={(e) => setSearchFun(e.target.value)}
+              />
+              <InputRightElement>
+                <SearchIcon />
+              </InputRightElement>
+            </InputGroup>
           </Box>
         </Box>
-        <Box className="siginMenuBox" mr="15px">
+
+        <Box
+          className="signinMenuBox"
+          mr="15px"
+          width={"30%"}
+          border={"1px solid re"}
+          bg="pin"
+          display={"flex"}
+          justifyContent="right"
+        >
           <Box display="flex" alignItems="center" height="100%" zIndex={9}>
             <Menu>
               <MenuButton

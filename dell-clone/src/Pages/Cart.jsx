@@ -2,10 +2,9 @@ import React from "react";
 import {
   Box,
   Text,
-  Image,
-  Select,
   Button,
   Input,
+  Image,
   InputGroup,
   InputRightElement,
 } from "@chakra-ui/react";
@@ -15,11 +14,15 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthContext";
 import { useContext } from "react";
+import CartItem from "../Components/Cart/CartItem";
+import CartItemSkeleton from "../Components/Cart/CartItemSkeleton";
 
 function Cart() {
   const { TotalPriceFun } = useContext(AuthContext);
   const [data, setData] = useState([]);
   const [up, setUp] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+
   //   const [qty, setQty] = useState(1);
   const navigate = useNavigate();
   const [totalCartPrice, setTotalPrice] = useState(0);
@@ -38,8 +41,10 @@ function Cart() {
   TotalPriceFun(totalPrice);
 
   const getData = () => {
+    setIsLoading(true);
     axios("https://dell-render.onrender.com/cart")
       .then((result) => {
+        setIsLoading(false);
         // console.log(result.data);
         setData(result.data);
       })
@@ -66,17 +71,15 @@ function Cart() {
         getData();
       });
 
-    console.log("quanty", +val, "id", id);
+    console.log("quantity", +val, "id", id);
   };
 
   const handleDelete = (id) => {
-    axios
-      .delete(`https://dell-render.onrender.com/cart/${id}`)
-      .then((res) => {
-        console.log("deleted");
-        setUp((prev) => prev + 1);
-        getData();
-      });
+    axios.delete(`https://dell-render.onrender.com/cart/${id}`).then((res) => {
+      console.log("deleted");
+      setUp((prev) => prev + 1);
+      getData();
+    });
   };
   return (
     <Box border="1px solid re" pb="50px">
@@ -88,7 +91,7 @@ function Cart() {
         width={"80%"}
       >
         <Text textAlign={"left"} fontSize={"30px"}>
-          Shooping Cart
+          Shopping Cart
         </Text>
       </Box>
       <Box
@@ -98,105 +101,65 @@ function Cart() {
         width={"80%"}
         m="auto"
       >
-        <Box className="cartItems" width={"70%"} border="1px solid re">
+        {isLoading ? (
+          <CartItemSkeleton />
+        ) : data.length === 0 ? (
           <Box
-            fontSize={"14px"}
-            className="topBox"
+            border={"1px solid gre"}
+            width={"70%"}
             display={"flex"}
-            borderBottom="1px solid grey"
-            p={"20px"}
+            justifyContent={"center"}
+            alignItems={"center"}
           >
-            <Box width={"60%"}>
-              <Text ml="40px">Item</Text>
-            </Box>
-            <Box width={"20%"}>
-              <Text ml="10px">Qty</Text>
-            </Box>
-            <Box width={"20%"}>
-              <Text ml="30px">Price</Text>
+            <Box textAlign={"center"}>
+              <Image src="https://tmbelectronics.in/common/images/emptycart.png" />
+              <Text fontSize={"20px"}>Opps, Your Cart is Empty</Text>
+              <Button
+                mt="15px"
+                colorScheme={"blue"}
+                onClick={() => navigate("/")}
+              >
+                Continue Shopping
+              </Button>
             </Box>
           </Box>
-          <Box className="middleBox" display={"flex"} flexDirection="column">
-            {data?.map((item) => {
-              return (
-                <Box
-                  key={item?.id}
-                  display={"flex"}
-                  borderBottom="1px solid grey"
-                >
-                  <Box
-                    width={"60%"}
-                    mb="15px"
-                    pb="15px"
-                    borderBottom="1px solid gre"
-                    display={"flex"}
-                  >
-                    <Box
-                      border={"1px solid blu"}
-                      display={"flex"}
-                      justifyContent={"center"}
-                      alignItems={"center"}
-                      width="30%"
-                    >
-                      <Image width={"80%"} src={item.imageUrl1} />{" "}
-                    </Box>
-                    <Box
-                      width={"70%"}
-                      fontSize={"12px"}
-                      lineHeight="25px"
-                      mt="15px"
-                    >
-                      <Text fontWeight={500} fontSize={"14px"}>
-                        {item.title}
-                      </Text>
-                      <Text>{item.orderCode}</Text>
-                      <Text fontWeight={500}>Product : </Text>
-                      <Text>{item.title} </Text>
-                      <Text fontWeight={500}>Backpack : </Text>
-                      <Text>Dell Essential Backpack</Text>
-                    </Box>
-                  </Box>
-                  <Box width={"20%"} mt="20px">
-                    <Select
-                      placeholder={item?.quantity}
-                      size="sm"
-                      width={"70px"}
-                      onChange={(e) => handleQuantity(e.target.value, item.id)}
-                    >
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                    </Select>
-                  </Box>
-                  <Box
-                    border="1px solid re"
-                    pb="15px"
-                    width={"20%"}
-                    mt="20px"
-                    display={"flex"}
-                    flexDirection={"column"}
-                    justifyContent={"space-between"}
-                  >
-                    <Text fontSize={"18px"} fontWeight={500}>
-                      {item.price}
-                    </Text>
-                    <Button
-                      ml="10px"
-                      variant={"link"}
-                      colorScheme="blue"
-                      width="70px"
-                      onClick={() => handleDelete(item.id)}
-                    >
-                      {" "}
-                      Remove Item{" "}
-                    </Button>
-                  </Box>
-                </Box>
-              );
-            })}
+        ) : (
+          <Box className="cartItems" width={"70%"} border="1px solid re">
+            <Box
+              fontSize={"14px"}
+              className="topBox"
+              display={"flex"}
+              borderBottom="1px solid grey"
+              p={"20px"}
+            >
+              <Box width={"60%"}>
+                <Text ml="40px">Item</Text>
+              </Box>
+              <Box width={"20%"}>
+                <Text ml="10px">Qty</Text>
+              </Box>
+              <Box width={"20%"}>
+                <Text ml="30px">Price</Text>
+              </Box>
+            </Box>
+            <Box
+              className="middleBox"
+              display={"flex"}
+              flexDirection="column"
+              border={"1px solid re"}
+            >
+              {data?.map((item) => {
+                return (
+                  <CartItem
+                    {...item}
+                    handleDelete={handleDelete}
+                    handleQuantity={handleQuantity}
+                  />
+                );
+              })}
+            </Box>
           </Box>
-        </Box>
+        )}
         <Box
           border={"1px solid re"}
           position="sticky"
@@ -243,7 +206,7 @@ function Cart() {
               <Text>Rs. {totalCartPrice}</Text>
             </Box>
             <Box p="10px" display={"flex"} justifyContent={"space-between"}>
-              <Text>Shipping (Express shippinhg)</Text>
+              <Text>Shipping (Express shipping)</Text>
               <Text>Rs. 0</Text>
             </Box>
             <Box p="10px" display={"flex"} justifyContent={"space-between"}>
@@ -261,6 +224,7 @@ function Cart() {
                   backgroundColor: "white",
                   border: "1px solid #5e9f10",
                 }}
+                disabled={data.length===0}
                 onClick={() => navigate("/address")}
               >
                 {" "}
