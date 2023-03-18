@@ -1,70 +1,81 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Dellco.com-Dell Clone
+## [Dellco.com](https://dellco.netlify.app/) :link:
 
-## Available Scripts
+Dell is a technology company that develops, sells, repairs, and supports computers and related products and services.
 
-In the project directory, you can run:
+## Technologies used
 
-### `npm start`
+- Html
+- CSS
+- Javascript
+- React
+- Chakra UI
+- React Icons
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installing and Running
+To run this application on your local system
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone the Repository
 
-### `npm test`
+```
+https://github.com/madhurn29/rooted-scale-5183.git
+```
+2. Install npm packages
+```
+npm install
+```
+3. Run the application
+```
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features  :sparkles:
 
-### `npm run build`
+- There is login and logout functionality.
+- Elegant navbar for easy navigation between pages and categories (Vostro laptops, Inspiron Laptops)
+- Product Pages where all the products are displayed using Api.
+- Single Product Page on clicking Each Product carrying description of that product.
+- Cart with Crud Operations.
+- Payment Pages.
+- Admin Dashboard
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Steps to navigate the website:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- On opening the application the user is taken to the landing Page which have a Navbar to navigate to different Section of the application.
+- On Navbar -> Product -> Laptops -> Inspiron / Vostro section is functional
+- Product Pages containing all the Products available with options of sort according to price.
+- Single Product Page to view the description of each and every Product.
+- Cart Page with add/delete functionality.
+- Payment Pages with form validation.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Screenshots
+## Home Page
+![homepage](https://user-images.githubusercontent.com/112754729/225916411-811778ed-fcfd-49ef-a42f-28b146f24dee.png)
 
-### `npm run eject`
+## Laptop Section
+![laptop_page](https://user-images.githubusercontent.com/112754729/226123271-dfad821f-83d1-4206-9cba-52e93f9235ad.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Product Page
+![product_section](https://user-images.githubusercontent.com/112754729/226123301-df68478b-d455-4082-b4db-dc7d6f96f7d9.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Single Product Page
+![single_product](https://user-images.githubusercontent.com/112754729/226123371-7316fd51-5fab-4d47-8e8c-b9fc2dc1a493.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Cart Page
+![cart](https://user-images.githubusercontent.com/112754729/226123321-081c3271-6d3a-4f79-9b80-2f12e2438efa.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Address Page
+![address_page](https://user-images.githubusercontent.com/112754729/226123344-4ed9ad6b-69ea-401a-b586-7aebbcad5b1d.png)
 
-## Learn More
+## Payment Page
+![payment_page](https://user-images.githubusercontent.com/112754729/226123391-d4291066-8f49-463a-a723-95967f1e4085.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## SignUp Page
+![sign_up](https://user-images.githubusercontent.com/112754729/226123405-8c7d506c-fef3-41d5-ab22-971b2c6875c7.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Login Page
+![login_page](https://user-images.githubusercontent.com/112754729/226123449-6cd2cbb3-62c0-45b7-aaa1-299938d2a73f.png)
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Server Link : https://dell-render.onrender.com/
