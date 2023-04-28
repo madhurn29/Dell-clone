@@ -51,7 +51,7 @@ function AddAddress() {
   
   const handleChange = (e) => {
     let { name, value } = e.target;
-    console.log(name, value);
+
     setForm({ ...form, [name]: value });
   };
 

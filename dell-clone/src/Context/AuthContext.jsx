@@ -10,12 +10,11 @@ function AuthContextProvider({ children }) {
   const TotalPriceFun = (val) => {
     setTotalPrice(val);
   };
-  console.log(totalPrice,"from contxt")
+  
   const setLogin = () => {
     setIsAuth(true);
   };
-  console.log("isAuth", isAuth);
-  console.log("userNAme", userName);
+  
   const setLogout = () => {
     setIsAuth(false);
   };

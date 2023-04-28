@@ -8,7 +8,7 @@ function SearchContextProvider({ children }) {
   const setSearchFun = (val) => {
     setSearch(val);
   };
-  console.log("from context",search) ;
+  
   return (
     <SearchContext.Provider value={{ search, setSearchFun }}>
       {children}

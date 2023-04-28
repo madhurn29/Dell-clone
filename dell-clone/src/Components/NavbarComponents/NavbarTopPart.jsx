@@ -33,10 +33,7 @@ function NavbarTopPart() {
   const { isAuth, userName, setLogout } = useContext(AuthContext);
   const [signInBtnText, SetSignInText] = useState("Sign In");
 
-  // useEffect(()=>{
-  //   SetSignInText(userName)
-  // },[])
-  console.log("fromnavbar", isAuth, userName);
+
 
   const handleSigninButton = () => {
     if (isAuth) {

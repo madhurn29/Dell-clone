@@ -1,6 +1,9 @@
 # Dellco.com
+
 Clone of Dell.com
+
 ## Live link:
+
 https://dellco.netlify.app/
 
 Hello there, I would like to introduce you to the website I have cloned as a part of unit 4 construct week at Masai School.
@@ -8,10 +11,12 @@ Hello there, I would like to introduce you to the website I have cloned as a par
 Dellco.com is the clone of Dell.com. DEllco.com is an E-commerce platform for Electronics items like PC's and Laptops. This is an individual project which was given by Masai school during the unit-4 curriculm.
 
 ### Techstack used in this project:
-React 
+
+React
 
 ### CSS Library used in this project:
+
 Chakra UI
 
 rooted-scale-5183
-Server Link : https://dell-render.onrender.com/
+Server Link : ${process.env.REACT_APP_SERVER_URL}/

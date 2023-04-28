@@ -37,10 +37,10 @@ function Checkout() {
   };
   const handleChange = (e) => {
     let { name, value } = e.target;
-    console.log(name, value);
+
     setForm({ ...form, [name]: value });
   };
-console.log(form)
+
   const handleSubmit = (e) => {
     e.preventDefault();
     let flag = true;
