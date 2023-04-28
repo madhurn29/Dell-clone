@@ -40,9 +40,9 @@ function SignUpForm() {
   };
   const PostRequest = () => {
     axios
-      .post("https://dell-render.onrender.com/users", form)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .post(`${process.env.REACT_APP_SERVER_URL}/users`, form)
+      .then((res) =>res)
+      .catch((err) => console.log(err,"from signup"));
     setForm(init);
   };
 
@@ -61,7 +61,7 @@ function SignUpForm() {
       callToast();
     }
   };
-  console.log("form", form);
+ 
   return (
     <Box className="FormBox" border={"1px solid re"}>
       <FormControl isRequired>

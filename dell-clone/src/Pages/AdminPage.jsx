@@ -7,7 +7,7 @@ import {
   FormControl,
   FormLabel,
   Select,
-    useToast,
+  useToast,
 } from "@chakra-ui/react";
 // import { ChevronLeftIcon } from "@chakra-ui/icons";
 import axios from "axios";
@@ -33,7 +33,7 @@ const init = {
 function AdminPage() {
   const [form, setForm] = useState(init);
   const [Category, SetCategory] = useState();
-  console.log(Category, "category");
+ 
   const toast = useToast();
 
   const callToast = () => {
@@ -65,11 +65,11 @@ function AdminPage() {
 
   const handleChange = (e) => {
     let { name, value } = e.target;
-    // console.log(name, value);
+
     setForm({ ...form, [name]: value });
   };
 
-  //   console.log(form);
+
   const setFormFun = (obj) => {
     setForm(obj);
   };
@@ -79,23 +79,23 @@ function AdminPage() {
       save: strikethrough - price,
     };
     setFormFun(newForm);
-    console.log(newForm);
-    PostRequest(Category,newForm);
-    callToast()
+   
+    PostRequest(Category, newForm);
+    callToast();
   };
 
   const PostRequest = (Category, obj) => {
     let url;
 
     if (Category === "Inspiron") {
-      url = "https://dell-render.onrender.com/inspiron";
+      url = `${process.env.REACT_APP_SERVER_URL}/inspiron`;
     }
     if (Category === "Vostro") {
-      url = "https://dell-render.onrender.com/vostro";
+      url = `${process.env.REACT_APP_SERVER_URL}/vostro`;
     }
     return axios.post(url, obj).then((response) => {
-        console.log(response);
-    })
+      console.log(response);
+    });
   };
   return (
     <Box border={"1px solid re"}>

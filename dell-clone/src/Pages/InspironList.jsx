@@ -35,17 +35,18 @@ function InspironList() {
 
   let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   let pagevalue = searchParams.get("page");
-  console.log("pagevalue", pagevalue);
+
 
   let intialPage = getPageNumber(pagevalue);
   const [page, setPage] = useState(intialPage);
-  console.log(searchParams, "searchParams");
+
 
   const getData = (page, search, SortOrder) => {
+ 
     setIsLoading(true);
-    let url = `https://dell-render.onrender.com/inspiron?_page=${page}&_limit=${limit}`;
+    let url = `${process.env.REACT_APP_SERVER_URL}/inspiron?_page=${page}&_limit=${limit}`;
     if (search) {
-      url = `https://dell-render.onrender.com/inspiron?_page=${page}&_limit=${limit}&q=${search}`;
+      url = `${process.env.REACT_APP_SERVER_URL}/inspiron?_page=${page}&_limit=${limit}&q=${search}`;
     }
     if (SortOrder) {
       url = `${url}&_sort=price&_order=${SortOrder}`;
@@ -68,7 +69,7 @@ function InspironList() {
         // always executed
       });
   };
-  console.log(totalPages, "totalsPages");
+
 
   useEffect(() => {
     window.scroll({
@@ -78,8 +79,6 @@ function InspironList() {
 
     getData(page, search, SortOrder);
   }, [page, search, SortOrder]);
-  console.log(productData);
-  console.log(totalProducts);
 
   useEffect(() => {
     let paramObj = {
@@ -172,8 +171,8 @@ function InspironList() {
               : productData?.map((item) => {
                   return (
                     <ProductSpecs
-                      route={`InspironList`}
                       key={item.id}
+                      route={`InspironList`}
                       {...item}
                     />
                   );

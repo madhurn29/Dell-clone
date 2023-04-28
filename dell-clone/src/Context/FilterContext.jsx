@@ -8,7 +8,7 @@ function FilterContextProvider({ children }) {
   const setFilterFun = (val) => {
     setFilter(val);
   };
-  console.log("from context",filterQuery) ;
+;
   return (
     <FilterContext.Provider value={{ filterQuery, setFilterFun }}>
       {children}

@@ -26,7 +26,7 @@ function LoginForm() {
   const navigate = useNavigate();
   const handleChange = (e) => {
     let { name, value } = e.target;
-    console.log(name, value);
+    
     setForm({ ...form, [name]: value });
   };
 
@@ -40,30 +40,32 @@ function LoginForm() {
   const handleSubmit = () => {
     setIsLoading(true);
     axios
-      .get(`https://dell-render.onrender.com/users?q=${form.email}`)
+      .get(`${process.env.REACT_APP_SERVER_URL}/users?q=${form.email}`)
       .then((res) => {
         if (res.data.length === 0) {
           callToast("User Not Found, Please Sign up");
-          console.log("No found");
+          
         } else {
           if (res.data[0].password === form.password) {
-            console.log("login");
-            setLogin();
+         
+            // setLogin();
+            localStorage.setItem("isLogged", true);
             setName(res.data[0].name);
+            localStorage.setItem("name", res.data[0].name);
             navigate("/");
           } else {
             callToast("Wrong Credentials");
-            console.log("wrong password");
+            
           }
         }
-        // console.log(res,"response")
+    
       })
-      .catch((err) => console.log(err))
+      .catch((err) => console.log(err,"from login request"))
       .finally(() => {
         setIsLoading(false);
       });
   };
-  console.log(form);
+  
   return (
     <Box className="FormBox" border={"1px solid re"}>
       <Box mt="15px">

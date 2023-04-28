@@ -31,20 +31,18 @@ function SingleProductPage({ route, routeName }) {
   };
 
   const { id } = param;
-  console.log(id);
   const getData = (id) => {
     setIsLoading(true);
     axios
-      .get(`https://dell-render.onrender.com/${route}/${id}`)
+      .get(`${process.env.REACT_APP_SERVER_URL}/${route}/${id}`)
       .then(function (response) {
         // handle success
-        console.log(response.data);
         setProductData(response.data);
         setIsLoading(false);
       })
       .catch(function (error) {
         // handle error
-        console.log(error, "fromerr");
+        console.log(error, "from single product page");
       })
       .finally(function () {
         // always executed
@@ -60,17 +58,27 @@ function SingleProductPage({ route, routeName }) {
 
   const handleAddCart = (obj) => {
     let newobj = { ...obj, quantity: 1 };
-    axios
-      .post("https://dell-render.onrender.com/cart", newobj)
-      .then(function (response) {
-        console.log(response);
-        callToast("Added to cart");
+
+    delete newobj.id;
+    axios(
+      `${process.env.REACT_APP_SERVER_URL}/cart?orderCode=${newobj.orderCode}`
+    )
+      .then((res) => {
+        if (res.data.length === 0) {
+          axios
+            .post(`${process.env.REACT_APP_SERVER_URL}/cart`, newobj)
+            .then(function (response) {
+             
+              callToast("Added to cart");
+            })
+            .catch(function (error) {
+              console.log(error,"from posting data to cart");
+            });
+        } else {
+          callToast("Already added to cart");
+        }
       })
-      .catch(function (error) {
-        console.log(error);
-        callToast("Already added to cart");
-      });
-    console.log("from add cart", newobj);
+      .catch((err) => console.log("error from getting data on cart page", err));
   };
 
   return (

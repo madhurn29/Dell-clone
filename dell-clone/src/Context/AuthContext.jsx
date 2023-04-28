@@ -10,13 +10,14 @@ function AuthContextProvider({ children }) {
   const TotalPriceFun = (val) => {
     setTotalPrice(val);
   };
-  console.log(totalPrice,"from contxt")
+
   const setLogin = () => {
+    
     setIsAuth(true);
   };
-  console.log("isAuth", isAuth);
-  console.log("userNAme", userName);
+
   const setLogout = () => {
+    localStorage.setItem("isLogged", false);
     setIsAuth(false);
   };
 
@@ -25,7 +26,15 @@ function AuthContextProvider({ children }) {
   };
   return (
     <AuthContext.Provider
-      value={{ isAuth, setLogin, setLogout, setName, userName, TotalPriceFun ,totalPrice}}
+      value={{
+        isAuth,
+        setLogin,
+        setLogout,
+        setName,
+        userName,
+        TotalPriceFun,
+        totalPrice,
+      }}
     >
       {children}
     </AuthContext.Provider>

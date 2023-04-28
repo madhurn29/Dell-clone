@@ -1,9 +1,21 @@
 
+
 # Dellco.com-Dell Clone
 ## [Dellco.com](https://dellco.netlify.app/) :link:
 
 Dell is a technology company that develops, sells, repairs, and supports computers and related products and services.
 
+### Techstack used in this project:
+
+React
+
+### CSS Library used in this project:
+
+Chakra UI
+
+rooted-scale-5183
+Server Link : ${process.env.REACT_APP_SERVER_URL}/
+=======
 ## Technologies used
 
 - Html
@@ -79,3 +91,4 @@ npm start
 
 
 Server Link : https://dell-render.onrender.com/
+

@@ -31,21 +31,21 @@ function NavbarTopPart() {
   const Icon = chakra(FontAwesomeIcon);
   const { setSearchFun } = useContext(SearchContext);
   const { isAuth, userName, setLogout } = useContext(AuthContext);
-  const [signInBtnText, SetSignInText] = useState("Sign In");
+  const [isLoggedIn, setIslogged] = useState(localStorage.getItem("isLogged"));
 
-  // useEffect(()=>{
-  //   SetSignInText(userName)
-  // },[])
-  console.log("fromnavbar", isAuth, userName);
+  const name = localStorage.getItem("name") || "user";
 
   const handleSigninButton = () => {
-    if (isAuth) {
-      SetSignInText("Log Out");
-      setLogout();
+    if (isLoggedIn == "true") {
+      localStorage.setItem("isLogged", false);
+      setIslogged(localStorage.getItem("isLogged"));
+      // setLogout();
     } else {
       navigate("/signin");
     }
   };
+
+  console.log(isLoggedIn);
 
   return (
     <>
@@ -110,7 +110,7 @@ function NavbarTopPart() {
                 borderRadius="none"
                 rightIcon={<ChevronDownIcon />}
               >
-                <Icon icon={faUser} /> {isAuth ? userName : "SignIn"}
+                <Icon icon={faUser} /> {isLoggedIn == "true" ? name : "SignIn"}
               </MenuButton>
               <MenuList width={"50%"} zIndex={9}>
                 <Text as="h5" size="xs" ml="10px">
@@ -127,7 +127,7 @@ function NavbarTopPart() {
                   height="25px"
                   onClick={handleSigninButton}
                 >
-                  {isAuth ? "Log Out" : "Sign In"}
+                  {isLoggedIn == "true" ? "Log Out" : "Sign In"}
                 </Button>
                 <Button
                   width="90%"
@@ -143,7 +143,7 @@ function NavbarTopPart() {
                     navigate("/signup");
                   }}
                 >
-                  {isAuth ? "Manage Account" : "Create Account"}
+                  {isLoggedIn == "true" ? "Manage Account" : "Create Account"}
                 </Button>
                 <Button
                   width="90%"

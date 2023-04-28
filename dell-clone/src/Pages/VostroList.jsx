@@ -34,20 +34,20 @@ function VostroList() {
   const { filterQuery } = useContext(FilterContext);
   const [isLoading, setIsLoading] = useState(false);
   const [SortOrder, setSortOrder] = useState("");
-  console.log(filterQuery, "filterQuery");
+ 
   let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   let pagevalue = searchParams.get("page");
-  console.log("pagevalue", pagevalue);
+
 
   let intialPage = getPageNumber(pagevalue);
   const [page, setPage] = useState(intialPage);
-  console.log(searchParams, "searchParams");
+
 
   const getData = (page, search, SortOrder) => {
     setIsLoading(true);
-    let url = `https://dell-render.onrender.com/vostro?_page=${page}&_limit=${limit}`;
+    let url = `${process.env.REACT_APP_SERVER_URL}/vostro?_page=${page}&_limit=${limit}`;
     if (search) {
-      url = `https://dell-render.onrender.com/vostro?_page=${page}&_limit=${limit}&q=${search}`;
+      url = `${process.env.REACT_APP_SERVER_URL}/vostro?_page=${page}&_limit=${limit}&q=${search}`;
     }
     if (SortOrder) {
       url = `${url}&_sort=price&_order=${SortOrder}`;
@@ -60,20 +60,18 @@ function VostroList() {
       .get(url)
       .then(function (response) {
         // handle success
-        // console.log(response.headers.get("x-total-count"));
+     
         setProductData(response.data);
         setTotalProducts(response.headers.get("x-total-count"));
         setIsLoading(false);
       })
       .catch(function (error) {
         // handle error
-        console.log(error);
+        console.log(error,"getting vostro data");
       })
-      .finally(function () {
-        // always executed
-      });
+      
   };
-  console.log(totalPages, "totalsPages");
+
 
   useEffect(() => {
     window.scroll({
@@ -83,8 +81,7 @@ function VostroList() {
 
     getData(page, search, SortOrder);
   }, [page, search, SortOrder]);
-  console.log(productData);
-  console.log(totalProducts);
+
 
   useEffect(() => {
     let paramObj = {

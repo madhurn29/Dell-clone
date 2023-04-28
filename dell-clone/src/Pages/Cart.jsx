@@ -37,15 +37,15 @@ function Cart() {
   });
 
   totalPrice = totalPrice.toFixed(2);
-  console.log(totalPrice);
+
   TotalPriceFun(totalPrice);
 
   const getData = () => {
     setIsLoading(true);
-    axios("https://dell-render.onrender.com/cart")
+    axios(`${process.env.REACT_APP_SERVER_URL}/cart`)
       .then((result) => {
         setIsLoading(false);
-        // console.log(result.data);
+       
         setData(result.data);
       })
       .catch((err) => {
@@ -62,11 +62,11 @@ function Cart() {
       val = 1;
     }
     axios
-      .patch(`https://dell-render.onrender.com/cart/${id}`, {
+      .patch(`${process.env.REACT_APP_SERVER_URL}/cart/${id}`, {
         quantity: val,
       })
       .then((res) => {
-        console.log(res);
+     
         setUp((prev) => prev + 1);
         getData();
       });
@@ -75,11 +75,13 @@ function Cart() {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`https://dell-render.onrender.com/cart/${id}`).then((res) => {
-      console.log("deleted");
-      setUp((prev) => prev + 1);
-      getData();
-    });
+    axios
+      .delete(`${process.env.REACT_APP_SERVER_URL}/cart/${id}`)
+      .then((res) => {
+     
+        setUp((prev) => prev + 1);
+        getData();
+      });
   };
   return (
     <Box border="1px solid re" pb="50px">
@@ -224,7 +226,7 @@ function Cart() {
                   backgroundColor: "white",
                   border: "1px solid #5e9f10",
                 }}
-                disabled={data.length===0}
+                disabled={data.length === 0}
                 onClick={() => navigate("/address")}
               >
                 {" "}

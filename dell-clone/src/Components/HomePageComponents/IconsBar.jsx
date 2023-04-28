@@ -62,7 +62,7 @@ function IconsBar() {
         {navIcons.map((item) => {
           return (
             <GridItem
-              key={item.id}
+              key={item.title}
               // border="1px solid black"
               height="80px"
               display="flex"

@@ -3,8 +3,8 @@ import { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 function PrivateRoute({ children }) {
   const { isAuth } = useContext(AuthContext);
-
-  if (!isAuth) {
+  const isLoggedIn = localStorage.getItem("isLogged");
+  if (!isLoggedIn) {
     return <Navigate to="/signin" />;
   }
 
