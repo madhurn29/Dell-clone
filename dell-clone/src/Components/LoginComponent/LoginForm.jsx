@@ -48,8 +48,10 @@ function LoginForm() {
         } else {
           if (res.data[0].password === form.password) {
          
-            setLogin();
+            // setLogin();
+            localStorage.setItem("isLogged", true);
             setName(res.data[0].name);
+            localStorage.setItem("name", res.data[0].name);
             navigate("/");
           } else {
             callToast("Wrong Credentials");
