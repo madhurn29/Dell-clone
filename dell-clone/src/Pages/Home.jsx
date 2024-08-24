@@ -1,7 +1,6 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
 import IconsBar from "../Components/HomePageComponents/IconsBar";
-import ImageComponent from "../Components/HomePageComponents/ImageComponent";
 import Welcome from "../Components/HomePageComponents/Welcome";
 import BannerComponents from "../Components/HomePageComponents/BannerComponents";
 import DellSupport from "../Components/HomePageComponents/DellSupport";
@@ -10,7 +9,6 @@ function Home() {
   return (
     <Box>
       <IconsBar />
-      <ImageComponent />
       <Welcome />
       <BannerComponents
         imageUrl={
@@ -27,7 +25,7 @@ function Home() {
 
       <BannerComponents
         imageUrl={
-          "https://i.dell.com/is/image/DellContent/content/dam/ss2/page-specific/dell-homepage/apj/modules/monitor-aw2723df-1.png?fmt=png-alpha&wid=1023&hei=842"
+          "https://i.dell.com/is/image/DellContent/content/dam/ss2/page-specific/dell-homepage/apj/modules/republic-day-cons-dell-inspiron-5420nt-uhp-2304-12-homepage-module-rf-1023x842-lr.png?fmt=png-alpha&wid=1023&hei=842"
         }
         head={"ALIENWARE 27 GAMING MONITOR"}
         tagLine={"Outshine Everyone"}
@@ -64,7 +62,7 @@ function Home() {
         <Box borderRight={"1px solid black"} width="50%">
           <BannerComponents
             imageUrl={
-              "https://i.dell.com/is/image/DellContent/content/dam/ss2/page-specific/dell-homepage/apj/2-ups/republic-day-cons-dell-inspiron-5420nt-uhp-2304-12-in-homepage-2up-module-800x400.png?fmt=pjpg&pscan=auto&scl=1&wid=800&hei=400&qlt=100,0&resMode=sharp2&size=800,400&op_usm=1.75,0.3,2,0"
+              "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/page/banners/q4w1-con-warm-2updeal2-wl5022-km7321w-mh3021p-800x400.jpg?fmt=pjpg&pscan=auto&scl=1&wid=800&hei=400&qlt=100,0&resMode=sharp2&size=800,400&op_usm=1.75,0.3,2,0"
             }
             head={"REPUBLIC DAY OFFERS"}
             tagLine={"Set Your Creativity Free"}
