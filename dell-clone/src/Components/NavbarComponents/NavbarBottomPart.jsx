@@ -12,7 +12,7 @@ import {
 import { ChevronDownIcon } from "@chakra-ui/icons";
 function NavbarBottomPart() {
   return (
-    <Box mt="10px" border="1px solid re">
+    <Box mt="10px" >
       <Menu>
         <MenuButton
           as={Button}
